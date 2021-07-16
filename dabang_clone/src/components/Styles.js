@@ -47,9 +47,11 @@ const H1 = styled.h1`
 `;
 
 const P = styled.p`
-  ${(props) => (props.margin ? `margin:${props.margin};` : "")}
-  ${(props) => (props.color ? `margin:${props.color};` : "")}
-  font-size: 1em;
+  ${(props) => (props.fontsize ? `font-size: ${props.fontsize};` : "font-size: 1em" )}
+  ${(props) => (props.fontweight ? `font-weight: ${props.fontweight};` : "")}
+  ${(props) => (props.color ? `color: ${props.color};` : "")}
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.textalign ? `text-align: ${props.textalign};` : "")}
 `;
 
 const Span = styled.span`
@@ -58,6 +60,7 @@ const Span = styled.span`
   color: #888;
   font-family: "PoppinsR";
 `;
+
 
 // input 스타일!
 // const InputC = styled.input`
