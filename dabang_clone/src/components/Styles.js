@@ -25,18 +25,14 @@ const Grid = styled.div`
 
 const Text = (props) => {
   if (props.type === "title") {
-    return <H1>{props.children}</H1>;
-  }
-
-  if (props.type === "contents") {
-    return <P>{props.children}</P>;
+    return <H1 {...props}>{props.children}</H1>;
   }
 
   if (props.type === "label") {
-    return <Span>{props.children}</Span>;
+    return <Span {...props}>{props.children}</Span>;
   }
 
-  return <React.Fragment>{props.children}</React.Fragment>;
+  return <P {...props}>{props.children}</P>;
 };
 
 const H1 = styled.h1`
@@ -52,6 +48,7 @@ const P = styled.p`
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.textalign ? `text-align: ${props.textalign};` : "")}
+  line-height: ${(props) => props.lineHeight || ""};
 `;
 
 const Span = styled.span`
