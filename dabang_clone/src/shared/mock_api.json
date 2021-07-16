@@ -2,35 +2,35 @@
     "posts": {
         "sale_info": {"room_type": "원룸"},
         "address_info": {
-        "road": "가가로 14",
-        "original": "상예동 4576"
+            "road": "가가로 14",
+            "original": "상예동 4576"
         },
         "trade_info": {
-        "monthly_deposit": "보증금",
-        "yearly_deposit": "보증금",
-        "monthly_pay": "월세",
-        "is_montly": true,
-        "is_yearly": true
+            "monthly_deposit": "보증금",
+            "yearly_deposit": "보증금",
+            "monthly_pay": "월세",
+            "is_montly": true,
+            "is_yearly": true
         },
         "basic_info": {
-        "building_area": 13,
-        "floor": 13,
-        "moving_date": "ddMMMyyyy"
+            "building_area": 13,
+            "floor": 13,
+            "moving_date": "ddMMMyyyy"
         }, 
         "additional_info": {
-        "management_fee": 5,
-        "is_parking_space": true,
-        "has_pet": true,
-        "has_elevator": true,
-        "has_balcony": true,
-        "has_built_in": true,
-        "construction": "복층",
-        "option": ["인덕션", "전자레인지", "에어컨"],
-        "loan_possibility": true
+            "management_fee": 5,
+            "is_parking_space": true,
+            "has_pet": true,
+            "has_elevator": true,
+            "has_balcony": true,
+            "has_built_in": true,
+            "construction": "복층",
+            "option": ["인덕션", "전자레인지", "에어컨"],
+            "loan_possibility": true
         },
         "detail_info": {
-        "title": "제목",
-        "contents": "상세 설명"
+            "title": "제목",
+            "contents": "상세 설명"
         },
         "image_upload": {
             "url": [
