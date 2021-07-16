@@ -64,6 +64,7 @@ const Text = (props) => {
   if (props.type === "label") {
     return <Span {...props}>{props.children}</Span>;
   }
+
   return <P {...props}>{props.children}</P>;
 };
 const H1 = styled.h1`
@@ -83,6 +84,7 @@ const P = styled.p`
   ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight};` : "")}
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  line-height: ${(props) => props.lineHeight || ""};
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : "")}
   &:hover {
     color: ${(props) => props.hoverColor || ""};

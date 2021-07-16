@@ -1,5 +1,6 @@
 {
     "posts": {
+        "id": "0",
         "sale_info": {"room_type": "원룸"},
         "address_info": {
             "road": "가가로 14",
