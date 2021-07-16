@@ -10,7 +10,6 @@ const Grid = styled.div`
   ${(props) =>
     props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
   width: ${(props) => (props.width ? props.width : "100%")};
-  min-width: 50px;
   height: ${(props) => (props.height ? props.height : "100%")};
   align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
   justify-content: ${(props) =>
@@ -25,6 +24,37 @@ const Grid = styled.div`
   border-bottom: ${(props) => props.borderBottom || ""};
   flex: ${(props) => props.flex || ""};
   font-family: ${(props) => props.fontFamily || ""};
+  border-radius: ${(props) => props.borderRadius || ""};
+  box-shadow: ${(props) => props.boxShadow || ""};
+`;
+
+const ListCont = styled.ul`
+  ${(props) => (props.border ? `border: ${props.border};` : "")}
+  ${(props) =>
+    props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
+  width: ${(props) => (props.width ? props.width : "100%")};
+  border-radius: ${(props) => props.borderRadius || ""};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
+`;
+
+const List = styled.li`
+  color: ${(props) => props.color || ""};
+  font-size: ${(props) => props.fontSize || ""};
+  line-height: ${(props) => props.lineHeight || ""};
+  position: ${(props) => props.position || ""};
+  list-style: none;
+  font-family: ${(props) => props.fontFamily || ""};
+  &:before {
+    content: "";
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: rgb(34, 34, 34);
+    position: absolute;
+    top: 10px;
+    left: -10px;
+  }
 `;
 
 const Text = (props) => {
@@ -37,10 +67,15 @@ const Text = (props) => {
   return <P {...props}>{props.children}</P>;
 };
 const H1 = styled.h1`
-  margin: 0px;
-  font-size: 1.5em;
   text-align: center;
-  ${(props) => (props.bold ? `font-weight: bold;` : "")}
+  font-size: ${(props) => props.fontSize || ""};
+  font-weight: ${(props) => props.fontWeight || ""};
+  line-height: ${(props) => props.lineHeight || ""};
+  color: ${(props) => props.color || ""};
+  position: ${(props) => props.position || ""};
+  height: ${(props) => props.height || ""};
+  border-bottom: ${(props) => props.borderBottom || ""};
+  width: ${(props) => props.width || ""};
 `;
 const P = styled.p`
   ${(props) =>
@@ -49,7 +84,6 @@ const P = styled.p`
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : "")}
-  line-height: ${(props) => props.lineHeight || ""};
   &:hover {
     color: ${(props) => props.hoverColor || ""};
     background-color: ${(props) => props.hoverBackgroundColor || ""};
@@ -57,9 +91,8 @@ const P = styled.p`
   cursor: ${(props) => props.cursor || ""};
 `;
 const Span = styled.span`
-  margin: 0px;
-  font-size: 0.4em;
-  color: #888;
+  font-size: ${(props) => props.fontSize || ""};
+  color: ${(props) => props.color || ""};
 `;
 
 // input 스타일!
@@ -70,4 +103,4 @@ const Span = styled.span`
 //   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 // `;
 
-export { Grid, Text };
+export { Grid, Text, ListCont, List };

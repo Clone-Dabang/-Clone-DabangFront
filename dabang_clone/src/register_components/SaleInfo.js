@@ -1,0 +1,82 @@
+import React from "react";
+import { Grid, Text } from "../components/Styles";
+import { useDispatch, useSelector } from "react-redux";
+import "./SaleInfo.css";
+
+const Register = () => {
+  return (
+    <React.Fragment>
+      <Grid
+        width="100%"
+        margin="0 0 50px 0"
+        border-radius="4px"
+        box-shadow="rgb(0 0 0 / 5%) 0px 1px 5px 0px"
+        border="1px solid rgb(226, 226, 226)"
+        background-color="rgb(255, 255, 255)"
+        justifyContent="center"
+        flexDirection="column"
+      >
+        <Text
+          type="title"
+          height="60px"
+          color="rgb(34, 34, 34)"
+          fontSize="18px"
+          lineHeight="60px"
+          borderBottom="1px solid rgb(204, 204, 204)"
+          position="relative"
+          fontWeight="700"
+          width="100%"
+        >
+          매물 종류
+        </Text>
+        <table>
+          <colgroup>
+            <col width="150px" />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>종류 선택</th>
+              <td>
+                <ul>
+                  <li>
+                    <label>
+                      <input type="radio" name="roomType" />
+                      <p>원룸</p>
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="roomType" />
+                      <p>투룸</p>
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="roomType" />
+                      <p>쓰리룸</p>
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="roomType" />
+                      <p>오피스텔</p>
+                    </label>
+                  </li>
+                  <li>
+                    <label>
+                      <input type="radio" name="roomType" />
+                      <p>아파트</p>
+                    </label>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </Grid>
+    </React.Fragment>
+  );
+};
+
+export default Register;
