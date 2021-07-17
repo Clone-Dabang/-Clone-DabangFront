@@ -17,12 +17,12 @@ const SET_POST = "SET_POST";
 const setPost = createAction(SET_POST, (post) => ({ post }));
 
 // middleware actions
-const getOnePostServer = (id) => {
+const getOnePostServer = (id=null) => {
     return function(dispatch, getState, {history}){
       axios.get(`http://localhost:4000/posts/${id}`)
       .then(function (response) {
         console.log(response,"getOnePostServer");
-        dispatch(setPost(response.mock_api));
+        dispatch(setPost(response.data));
       })
       .catch(function(err){
         console.log(err,"getOnePostError");
@@ -35,7 +35,7 @@ const getOnePostServer = (id) => {
 export default handleActions({
     [SET_POST]: (state, action) =>
     produce(state, (draft) => {
-      draft.list.push(...action.payload.post);
+      draft.list.push(action.payload.post);
     })
 }, initialState);
 

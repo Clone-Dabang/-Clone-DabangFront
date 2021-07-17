@@ -1,5 +1,6 @@
 {
-    "posts": {
+    "posts": 
+        [{
         "id": "0",
         "sale_info": {"room_type": "원룸"},
         "address_info": {
@@ -7,9 +8,9 @@
             "original": "상예동 4576"
         },
         "trade_info": {
-            "monthly_deposit": "보증금",
-            "yearly_deposit": "보증금",
-            "monthly_pay": "월세",
+            "monthly_deposit": 300,
+            "yearly_deposit": 9000,
+            "monthly_pay":130,
             "is_montly": true,
             "is_yearly": true
         },
@@ -41,7 +42,7 @@
             ]
         },
         "count": 10
-    },
+    }],
 
     "roomposts": {
         "roomType" : "원룸",
