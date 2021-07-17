@@ -48,7 +48,7 @@ const Header = (props) => {
           cursor="pointer"
           hoverColor="rgb(50, 108, 249)"
           onClick={() => {
-            history.push("/manage/form");
+            history.push("/register");
           }}
         >
           방내놓기
