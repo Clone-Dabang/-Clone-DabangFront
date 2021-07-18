@@ -28,53 +28,104 @@ const Detail = (props) => {
     return (
         <React.Fragment>
         {post && (
-            <Grid flexDirection="column">
-                <Grid flexDirection="column">
+            <Grid
+             fontFamily={`NanumGothic, -apple-system, sans-serif`}
+             display="block" width="1180px"
+             padding="35px 10px 0" margin="0 auto"
+             fontSize="14px">
+                <Grid margin="0 0 35px 0" justifyContent="space-between">
                     <Grid>
-                        <Grid flexDirection="column">
-                            <Text>{post.sale_info.room_type}</Text>
-                            {post.trade_info.is_montly?
-                            <Text>월세
-                                {post.trade_info.monthly_deposit}/
-                                {post.trade_info.monthly_pay}
-                                만원
+                        <Grid
+                        width="227px" display="block"
+                        padding="0 28px 0 0" 
+                        borderRight="1px solid rgb(231, 231, 231)"
+                        >
+                            <Text
+                            margin="0 0 5px">
+                                {post.sale_info.room_type}
                             </Text>
+                        {post.trade_info.is_montly?
+                            <Grid display="block" whiteSpace="nowrap">
+                                <Text
+                                 display="inline"
+                                 fontSize="30px" fontWeight="700"
+                                 lineHeight="45px">
+                                    월세&nbsp;
+                                    {post.trade_info.monthly_deposit}/
+                                    {post.trade_info.monthly_pay}
+                                    
+                                </Text>
+                                
+                                <Text
+                                 display="inline"
+                                 lineHeight="45px"
+                                 fontSize="15px" width="29px">
+                                &nbsp;만원</Text>
+                            </Grid>
                             :
-                            <Text>전세
-                                {post.trade_info.yearly_deposit}
-                                만원
-                            </Text>}
+                            <Grid
+                             display="block"
+                             borderRight="1px solid rgb(231, 231, 231)">
+                                <Text
+                                fontSize="30px" fontWeight="700"
+                                lineHeight="45px">전세
+                                    {post.trade_info.yearly_deposit}
+                                </Text>
+                                <Text
+                                fontSize="15px">
+                                    &nbsp;만원</Text>
+                            </Grid>
+                        }
                             
                         </Grid>
-                        <Grid flexDirection="column">
-                            <Text>전용면적</Text>
-                            <Text>{post.basic_info.building_area}
+                        <Grid
+                        alignItems="flex-start"  width="auto"
+                        borderRight="1px solid rgb(231, 231, 231)"
+                        padding="0 28px" flexDirection="column">
+                            <Text margin="0 0 5px">전용면적</Text>
+                            <Text fontSize="30px" fontWeight="700"
+                            lineHeight="45px">
+                                {post.basic_info.building_area}
                             </Text>
                         </Grid>
-                        <Grid flexDirection="column">
-                            <Text>한달 예상 주거비</Text>
-                            <Text>만 원 + a</Text>
+                        <Grid
+                        width="auto"
+                        alignItems="flex-start"
+                        color="rgb(50, 108, 249)"
+                        padding="0 28px"
+                        flexDirection="column"
+                        borderRight="1px solid rgb(231, 231, 231)"
+                        >
+                            <Text margin="0 0 5px">한달 예상 주거비</Text>
+                            <Text lineHeight="45px" fontSize="30px" fontWeight="700">만 원 + α</Text>
                         </Grid>
-                        <Grid>
-                            <Text>지안공인중개사무소</Text>
-                        </Grid>
+
                     </Grid>
 
-                    <Grid>
-                        <Grid>
-                            <Text>최근 7일 700회</Text>
-                            <Text>·</Text>
-                            <Text>링크아이콘</Text>
-                            <Text>·</Text>
-                            <Text>허위매물신고</Text>
-                        </Grid>
-                        <Text>※ 중개사무소 대표가 직접 확인하고 승인한 매물입니다.</Text>
+                    <Grid
+                    //  flex="0 0 550px"
+                     justifyContent="flex-end">
+                        <Text
+                         margin="0 0 5px">
+                        지안공인중개사무소
+                        </Text>
                     </Grid>
+                </Grid>
+
+                <Grid justifyContent="space-between">
+                    <Grid width="auto">
+                        <Text>최근 7일 700회</Text>
+                        <Text margin="0 16px">·</Text>
+                        <Text>링크아이콘</Text>
+                        <Text margin="0 16px">·</Text>
+                        <Text>허위매물신고</Text>
+                    </Grid>
+                    <Text>※ 중개사무소 대표가 직접 확인하고 승인한 매물입니다.</Text>
                 </Grid>
 
                 {/* 확인매물 표시 여부 필요 */}
                 
-                <Grid flexDirection="column">
+                <Grid display="block">
                     <Grid>
                         <Grid>
                             <Text>해당층/건물층</Text>

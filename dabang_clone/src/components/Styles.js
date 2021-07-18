@@ -3,13 +3,17 @@ import styled from "styled-components";
 
 const Grid = styled.div`
   box-sizing: border-box;
-  display: flex;
+  display: ${(props) => props.display || "flex"};
   flex-direction: ${(props) =>
     props.flexDirection === "column" ? "column" : "row"};
+  flex: ${(props) => props.flex || ""};
   ${(props) => (props.border ? `border: ${props.border};` : "")}
   ${(props) =>
     props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
   width: ${(props) => (props.width ? props.width : "100%")};
+  max-width: ${(props) => props.maxWidth || ""};
+  white-space: ${(props) => props.whiteSpace || ""};
+
   height: ${(props) => (props.height ? props.height : "100%")};
   align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
   justify-content: ${(props) =>
@@ -22,6 +26,9 @@ const Grid = styled.div`
   ${(props) => (props.color ? `color:${props.color};` : "")}
   ${(props) => (props.textAlign ? `text-align: center;` : "")}
   border-bottom: ${(props) => props.borderBottom || ""};
+  border-right: ${(props) => props.borderRight || ""};
+  font-size: ${(props) => props.fontSize || ""};
+  
   flex: ${(props) => props.flex || ""};
   font-family: ${(props) => props.fontFamily || ""};
   border-radius: ${(props) => props.borderRadius || ""};
@@ -84,6 +91,7 @@ const P = styled.p`
   ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight};` : "")}
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+
   line-height: ${(props) => props.lineHeight || ""};
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : "")}
   &:hover {
@@ -91,6 +99,9 @@ const P = styled.p`
     background-color: ${(props) => props.hoverBackgroundColor || ""};
   }
   cursor: ${(props) => props.cursor || ""};
+
+  font-family: ${(props) => props.fontFamily || ""};
+  display: ${(props) => props.display || ""};
 `;
 const Span = styled.span`
   font-size: ${(props) => props.fontSize || ""};
