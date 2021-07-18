@@ -2,17 +2,17 @@
   box-sizing: border-box;
 }
 
-table {
+#addressInfo table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0px;
 }
 
-table tr {
+#addressInfo table tr {
   height: 70px;
 }
 
-table th {
+#addressInfo table th {
   min-width: 150px;
   color: rgb(34, 34, 34);
   font-size: 15px;
@@ -21,18 +21,18 @@ table th {
   vertical-align: middle;
 }
 
-table td {
+#addressInfo table td {
   vertical-align: middle;
 }
 
-table td > div {
+#addressInfo table td > div {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
   padding: 20px;
 }
 
-table td > div > div {
+#addressInfo table td > div > div {
   display: flex;
   flex-direction: column;
   -webkit-box-pack: center;
@@ -41,7 +41,7 @@ table td > div > div {
   height: 100%;
 }
 
-table td > div > div > p {
+#addressInfo table td > div > div > p {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -52,23 +52,23 @@ table td > div > div > p {
   user-select: none;
 }
 
-menu, ol, ul {
+#addressInfo menu, #addressInfo ol, #addressInfo ul {
   list-style: none;
 }
 
-select, input, textarea, a {
+#addressInfo select, input, textarea, a {
   outline: none;
 }
 
-input, textarea {
+#addressInfo input, textarea {
   user-select: text;
 }
 
-textarea, input {
+#addressInfo textarea, input {
   appearance: none;
 }
 
-h1 > span {
+#addressInfo h1 > span {
   margin-right: 18px;
   color: rgb(136, 136, 136);
   font-size: 14px;
@@ -79,14 +79,14 @@ h1 > span {
   transform: translateY(-50%);
 }
 
-table form {
+#addressInfo table form {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
   margin: 15px 0px 10px;
 }
 
-form > input[type="text"] {
+#addressInfo form > input[type="text"] {
   padding: 0px 16px;
   color: rgb(76, 76, 76);
   font-size: 14px;
@@ -97,7 +97,7 @@ form > input[type="text"] {
   height: 46px;
 }
 
-form > input[type="button"] {
+#addressInfo form > input[type="button"] {
   -webkit-box-flex: 1;
   flex-grow: 1;
   height: 46px;
@@ -111,7 +111,7 @@ form > input[type="button"] {
   user-select: none;
 }
 
-form + div {
+#addressInfo form + div {
   display: flex;
   flex-direction: column;
   -webkit-box-pack: center;
@@ -123,13 +123,13 @@ form + div {
   background-color: rgb(255, 255, 255);
 }
 
-form + div > p {
+#addressInfo form + div > p {
   color: rgb(136, 136, 136);
   font-size: 15px;
   line-height: 22px;
 }
 
-form + div > p > span {
+#addressInfo form + div > p > span {
   display: inline-block;
   width: 60px;
   height: 25px;
