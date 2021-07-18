@@ -87,10 +87,12 @@ const H1 = styled.h1`
 `;
 const P = styled.p`
   ${(props) =>
-    props.fontSize ? `font-size: ${props.fontSize};` : "font-size: 1em"}
+    props.fontSize ? `font-size: ${props.fontSize};` : "font-size: 1em;"}
   ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight};` : "")}
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.flex ? `flex: ${props.flex};` : "")}
+
 
   line-height: ${(props) => props.lineHeight || ""};
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : "")}
@@ -108,6 +110,15 @@ const Span = styled.span`
   color: ${(props) => props.color || ""};
 `;
 
+const Icon = styled.div`
+    width:  ${(props) => props.width || ""};
+    height:  ${(props) => props.height || ""};
+    background-image: url(${(props) => props.url || ""});
+    background-size: cover;
+    margin: ${(props) => props.margin || ""};
+    padding: ${(props) => props.padding || ""};
+`
+
 // input 스타일!
 // const InputC = styled.input`
 //   width: ${(props) => (props.width ? props.width : "100%")};
@@ -116,4 +127,4 @@ const Span = styled.span`
 //   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 // `;
 
-export { Grid, Text, ListCont, List };
+export { Grid, Text, ListCont, List, Icon };

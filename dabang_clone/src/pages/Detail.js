@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react';
-import {Grid, Text} from "../components/Styles";
+import {Grid, Text, Icon} from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOnePostServer } from '../redux/modules/room';
+import eye from "../images/eye_shaped_icon.png";
+import link from "../images/link_icon.png";
+import siren from "../images/siren_icon.png";
 
 const Detail = (props) => {
     const dispatch = useDispatch();
@@ -32,7 +35,8 @@ const Detail = (props) => {
              fontFamily={`NanumGothic, -apple-system, sans-serif`}
              display="block" width="1180px"
              padding="35px 10px 0" margin="0 auto"
-             fontSize="14px">
+             fontSize="14px"
+             color="rgb(34, 34, 34)">
                 <Grid margin="0 0 35px 0" justifyContent="space-between">
                     <Grid>
                         <Grid
@@ -112,13 +116,21 @@ const Detail = (props) => {
                     </Grid>
                 </Grid>
 
-                <Grid justifyContent="space-between">
+                <Grid justifyContent="space-between" margin="0 0 20px">
                     <Grid width="auto">
-                        <Text>최근 7일 700회</Text>
-                        <Text margin="0 16px">·</Text>
-                        <Text>링크아이콘</Text>
-                        <Text margin="0 16px">·</Text>
-                        <Text>허위매물신고</Text>
+                        <Icon url={eye}
+                         width="17px" height="17px"
+                         margin="0 6px 0 0" />
+                        <Text>최근 7일 70회</Text>
+                        <Text margin="0 16px">•</Text>
+                        <Icon url={link}
+                         width="17px" height="17px"
+                         margin="0 4px 0 0" />
+                        <Text margin="0 16px">•</Text>
+                        <Icon url={siren}
+                         width="16px" height="16px"
+                         margin="0 6px 0 0" />
+                        <Text fontSize="12px">허위매물 신고</Text>
                     </Grid>
                     <Text>※ 중개사무소 대표가 직접 확인하고 승인한 매물입니다.</Text>
                 </Grid>
