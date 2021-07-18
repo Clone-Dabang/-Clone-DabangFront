@@ -110,7 +110,7 @@ const AddressInfo = () => {
                         }}
                       >
                         <svg width="18" height="18" viewBox="0 0 18 18">
-                          <g fill="none" fill-rule="evenodd">
+                          <g fill="none" fillRule="evenodd">
                             <circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
                             <path
                               fill="#9C9EA3"

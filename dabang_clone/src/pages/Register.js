@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SaleInfo from "../register_components/SaleInfo";
 import AddressInfo from "../register_components/AddressInfo";
 import TradeInfo from "../register_components/TradeInfo";
+import BasicInfo from "../register_components/BasicInfo";
 
 const Register = () => {
   return (
@@ -66,6 +67,7 @@ const Register = () => {
         <SaleInfo></SaleInfo>
         <AddressInfo></AddressInfo>
         <TradeInfo></TradeInfo>
+        <BasicInfo></BasicInfo>
       </Grid>
     </React.Fragment>
   );
