@@ -61,6 +61,7 @@ const AddressInfo = () => {
   return (
     <React.Fragment>
       <Grid
+        id="addressInfo"
         width="100%"
         margin="0 0 50px 0"
         border-radius="4px"

@@ -2,17 +2,17 @@
   box-sizing: border-box;
 }
 
-table {
+#saleInfo table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0px;
 }
 
-table tr {
+#saleInfo table tr {
   height: 70px;
 }
 
-table th {
+#saleInfo table th {
   min-width: 150px;
   color: rgb(34, 34, 34);
   font-size: 15px;
@@ -21,36 +21,36 @@ table th {
   vertical-align: middle;
 }
 
-table td {
+#saleInfo table td {
   vertical-align: middle;
 }
 
-menu, ol, ul {
+#saleInfo menu, #saleInfo ol, #saleInfo ul {
   list-style: none;
 }
 
-table td > ul {
+#saleInfo table td > ul {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   padding: 0px 20px;
 }
 
-table td > ul > li {
+#saleInfo table td > ul > li {
   flex: 0 0 auto;
 }
 
-table td > ul > li + li {
+#saleInfo table td > ul > li + li {
     margin-left: 10px;
 }
 
-table td > ul > li > label {
+#saleInfo table td > ul > li > label {
   display: block;
   position: relative;
   cursor: pointer;
 }
 
-table td > ul > li > label > input[type="radio"] {
+#saleInfo table td > ul > li > label > input[type="radio"] {
   width: 0px;
   height: 0px;
   opacity: 0;
@@ -59,25 +59,25 @@ table td > ul > li > label > input[type="radio"] {
   left: 0px;
 }
 
-select, input, textarea, a {
+#saleInfo select, #saleInfo input, #saleInfo textarea, #saleInfo a {
   outline: none;
 }
 
-input, textarea {
+#saleInfo input, #saleInfo textarea {
   user-select: text;
 }
 
-textarea, input {
+#saleInfo textarea, #saleInfo input {
   appearance: none;
 }
 
-table td > ul > li > label > input[type="radio"]:checked + p {
+#saleInfo table td > ul > li > label > input[type="radio"]:checked + p {
   color: rgb(255, 255, 255);
   border-color: rgb(50, 108, 249);
   background-color: rgb(50, 108, 249);
 }
 
-table td > ul > li > label > p {
+#saleInfo table td > ul > li > label > p {
   display: flex;
   -webkit-box-align: center;
   align-items: center;

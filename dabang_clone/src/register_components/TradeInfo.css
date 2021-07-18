@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+#tradeInfo table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+#tradeInfo table tr {
+  height: 70px;
+}
+
+#tradeInfo table th {
+  min-width: 150px;
+  color: rgb(34, 34, 34);
+  font-size: 15px;
+  font-weight: 500;
+  background-color: rgb(249, 249, 249);
+  vertical-align: middle;
+}
+
+#tradeInfo table td {
+  vertical-align: middle;
+}
+
+#tradeInfo table td > div:not(#btn_area) {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 20px;
+  position: relative;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 46px;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div + div {
+  margin-top: 10px
+}
+
+#tradeInfo table td > div:not(#btn_area) > div > p:first-child {
+  width: 50px;
+  height: 26px;
+  margin-right: 10px;
+  line-height: 26px;
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: rgb(97, 182, 229);
+}
+
+#tradeInfo table td > div:not(#btn_area) > div > input {
+  padding: 0px 16px;
+  color: rgb(76, 76, 76);
+  font-size: 14px;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  width: 140px;
+  height: 100%;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div .kzCtLl {
+  width: 20px;
+  height: 46px;
+  color: rgb(34, 34, 34);
+  font-size: 16px;
+  text-align: center;
+  line-height: 46px;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div .ceMnZE {
+  margin-left: 8px;
+  color: rgb(34, 34, 34);
+  font-size: 15px;
+  line-height: 46px;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div .ceMnZE > span {
+  margin-left: 10px;
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div > button {
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  border: 0px;
+  border-radius: 0px;
+  background-color: rgb(102, 102, 102);
+  position: relative;
+  cursor: pointer;
+}
+
+#tradeInfo table td > div:not(#btn_area) > div > button::before {
+  width: 11.3137px;
+  height: 1px;
+  content: "";
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#tradeInfo table td > div:not(#btn_area) > div > button::after {
+  width: 1px;
+  height: 11.3137px;
+  content: "";
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#tradeInfo table td > div#btn_area {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+#tradeInfo table td > div#btn_area {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+#tradeInfo table td > div > button {
+  width: 100px;
+  height: 40px;
+  color: rgb(68, 68, 68);
+  font-size: 14px;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+#tradeInfo table td > div > button:disabled {
+  color: rgb(170, 170, 170);
+  border-color: rgb(204, 204, 204);
+  background-color: rgb(235, 235, 235);
+}
+
+#tradeInfo table td > div > button + button {
+  margin-left: 10px;
+}
+
+#tradeInfo table td > div > p {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-left: auto;
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+}
+
+#tradeInfo menu, #tradeInfo ol, #tradeInfo ul {
+  list-style: none;
+}
+
+#tradeInfo select, #tradeInfo input, #tradeInfo textarea, #tradeInfo a {
+  outline: none;
+}
+
+#tradeInfo input, #tradeInfo textarea {
+  user-select: text;
+}
+
+#tradeInfo textarea, #tradeInfo input {
+  appearance: none;
+}
