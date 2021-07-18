@@ -43,6 +43,14 @@ const ListCont = styled.ul`
   border-radius: ${(props) => props.borderRadius || ""};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
+
+  ${(props) => (props.display ? `display: ${props.display};` : "")}
+  ${(props) => (props.flexDirection ? `flex-direction: ${props.flexDirection};` : "")}
+  ${(props) => (props.justifyContent ? `justify-content: ${props.justifyContent};` : "")}
+  ${(props) => (props.flexWrap ? `flex-wrap: ${props.flexWrap};` : "")}
+  ${(props) => (props.borderTop ? `border-top: ${props.borderTop};` : "")}
+  ${(props) => (props.boxSizing ? `box-sizing: ${props.boxSizing};` : "")}
+  ${(props) => (props.ListStyleType ? `list-style-type: ${props.ListStyleType};`:"" )}
 `;
 
 const List = styled.li`
@@ -63,6 +71,20 @@ const List = styled.li`
     left: -10px;
   }
 `;
+
+const DetailList = styled.li`
+  width: ${(props) => props.width || "25%"};
+  height: ${(props) => props.height || "50px"};
+  display: ${(props) => props.display || "flex"};
+  align-items: ${(props) => props.alignItems || "center"};
+  border-bottom: ${(props) => props.borderBottom || "1px solid rgb(235, 235, 235)"};
+  &::before {
+    content: "·";
+    color: rgb(34, 34, 34);
+    margin-right: 7px;
+  }
+
+`
 
 const Text = (props) => {
   if (props.type === "title") {
@@ -91,8 +113,8 @@ const P = styled.p`
   ${(props) => (props.fontWeight ? `font-weight: ${props.fontWeight};` : "")}
   ${(props) => (props.color ? `color: ${props.color};` : "")}
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
   ${(props) => (props.flex ? `flex: ${props.flex};` : "")}
-
 
   line-height: ${(props) => props.lineHeight || ""};
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : "")}
@@ -104,6 +126,8 @@ const P = styled.p`
 
   font-family: ${(props) => props.fontFamily || ""};
   display: ${(props) => props.display || ""};
+  word-break: ${(props)=> props.wordBreak || ""};
+  white-space: ${(props)=> props.whiteSpace || ""};
 `;
 const Span = styled.span`
   font-size: ${(props) => props.fontSize || ""};
@@ -127,4 +151,4 @@ const Icon = styled.div`
 //   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 // `;
 
-export { Grid, Text, ListCont, List, Icon };
+export { Grid, Text, ListCont, List, DetailList, Icon };

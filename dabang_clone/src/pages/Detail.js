@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Grid, Text, Icon} from "../components/Styles";
+import {Grid, Text, Icon, ListCont, DetailList} from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOnePostServer } from '../redux/modules/room';
 import eye from "../images/eye_shaped_icon.png";
@@ -137,100 +137,126 @@ const Detail = (props) => {
 
                 {/* 확인매물 표시 여부 필요 */}
                 
+                <ListCont
+                 borderTop="2px solid black"
+                 display="flex" flexWrap="wrap"
+                 boxSizing="border-box"
+                 >
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                            해당층/건물층
+                        </Text>
+                        <Text>/{post.basic_info.floor}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                        전용/계약면적</Text>
+                        <Text>/{post.basic_info.building_area}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                        방 수/욕실 수</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             방향
+                        </Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             난방종류</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             빌트인</Text>
+                        <Text>{post.additional_info.has_built_in}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             건물 주차 수</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             세대당 주차수</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                        color="rgb(134, 134, 134)">
+                             엘리베이터</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             반려동물</Text>
+                        <Text>{post.additional_info.has_pet}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             베란다/발코니</Text>
+                        <Text>{post.additional_info.has_balcony}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             전세자금대출</Text>
+                        <Text>{post.additional_info.loan_possibility}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             입주가능일</Text>
+                        <Text>{post.basic_info.moving_date}</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             주용도</Text>
+                        <Text>단독주택</Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             사용승인일</Text>
+                        <Text></Text>
+                    </DetailList>
+                    <DetailList>
+                        <Text flex="0 0 95px"
+                         color="rgb(134, 134, 134)">
+                             최초 등록일</Text>
+                        <Text></Text>
+                    </DetailList>
+                </ListCont>
+
                 <Grid display="block">
-                    <Grid>
-                        <Grid>
-                            <Text>해당층/건물층</Text>
-                            <Text>/{post.basic_info.floor}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>전용/계약면적</Text>
-                            <Text>/{post.basic_info.building_area}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>방 수/욕실 수</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>방향</Text>
-                            <Text></Text>
-                        </Grid>
-                    </Grid>
-
-                    <Grid>
-                        <Grid>
-                            <Text>난방종류</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>빌트인</Text>
-                            <Text>{post.additional_info.has_built_in}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>총 세대 수</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>건물 주차 수</Text>
-                            <Text></Text>
-                        </Grid>
-                    </Grid>
-
-                    <Grid>
-                        <Grid>
-                            <Text>세대당 주차수</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>반려동물</Text>
-                            <Text>{post.additional_info.has_pet}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>베란다/발코니</Text>
-                            <Text>{post.additional_info.has_balcony}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>전세자금대출</Text>
-                            <Text>{post.additional_info.loan_possibility}</Text>
-                        </Grid>
-                    </Grid>
-
-                    <Grid>
-                        <Grid>
-                            <Text>입주가능일</Text>
-                            <Text>{post.basic_info.moving_date}</Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>주용도</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>사용승인일</Text>
-                            <Text></Text>
-                        </Grid>
-                        
-                        <Grid>
-                            <Text>최초 등록일</Text>
-                            <Text></Text>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid flexDirection="column">
                     이미지 슬라이드
-                    <Grid>
-                        <Text>{post.detail_info.title}</Text>
-                        <Text>{post.detail_info.contents}</Text>
+                    <Grid margin="50px 0 0 0" padding="0 0 130px 0">
+                        <Text
+                         wordBreak="break-all"
+                         fontSize="28px" fontWeight="400"
+                         lineHeight="36px"
+                         color="rgb(34, 34, 34)"
+                         flex="0 0 520px" padding="0 150px 0 0">{post.detail_info.title}</Text>
+                        <Text
+                         color="rgb(101, 101, 101)"
+                         fontSize="16px"
+                         lineHeight="26px"
+                         wordBreak="break-all"
+                         whiteSpace="pre-wrap" >{post.detail_info.contents}</Text>
                     </Grid>
                 </Grid>
             </Grid>
