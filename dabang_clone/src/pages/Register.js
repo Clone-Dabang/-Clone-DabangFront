@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Text, ListCont, List } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import SaleInfo from "../register_components/SaleInfo";
+import AddressInfo from "../register_components/AddressInfo";
 
 const Register = () => {
   return (
@@ -62,6 +63,7 @@ const Register = () => {
           </ListCont>
         </Grid>
         <SaleInfo></SaleInfo>
+        <AddressInfo></AddressInfo>
       </Grid>
     </React.Fragment>
   );

@@ -3,7 +3,7 @@ import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./SaleInfo.css";
 
-const Register = () => {
+const SaleInfo = () => {
   return (
     <React.Fragment>
       <Grid
@@ -79,4 +79,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SaleInfo;
