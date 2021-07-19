@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import {Grid, Text, Icon, ListCont, DetailList} from "../components/Styles";
+import {Grid, Text, Image, ListCont, DetailList} from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOnePostServer } from '../redux/modules/room';
 import eye from "../images/eye_shaped_icon.png";
 import link from "../images/link_icon.png";
 import siren from "../images/siren_icon.png";
+import ImageSlide from '../components/ImageSlide';
 
 const Detail = (props) => {
     const dispatch = useDispatch();
@@ -19,7 +20,6 @@ const Detail = (props) => {
     console.log(post_idx,"postindex")
     const post = post_list[post_idx];
 
-
      useEffect(() => {
         if (post) {
         return;
@@ -28,12 +28,16 @@ const Detail = (props) => {
     }, []);   
 
     console.log(post,"post");
+
+
+    
     return (
         <React.Fragment>
+
         {post && (
             <Grid
              fontFamily={`NanumGothic, -apple-system, sans-serif`}
-             display="block" width="1180px"
+             display="block" width="1200px"
              padding="35px 10px 0" margin="0 auto"
              fontSize="14px"
              color="rgb(34, 34, 34)">
@@ -116,18 +120,19 @@ const Detail = (props) => {
                     </Grid>
                 </Grid>
 
+
                 <Grid justifyContent="space-between" margin="0 0 20px">
                     <Grid width="auto">
-                        <Icon url={eye}
+                        <Image url={eye}
                          width="17px" height="17px"
                          margin="0 6px 0 0" />
                         <Text>최근 7일 70회</Text>
                         <Text margin="0 16px">•</Text>
-                        <Icon url={link}
+                        <Image url={link}
                          width="17px" height="17px"
                          margin="0 4px 0 0" />
                         <Text margin="0 16px">•</Text>
-                        <Icon url={siren}
+                        <Image url={siren}
                          width="16px" height="16px"
                          margin="0 6px 0 0" />
                         <Text fontSize="12px">허위매물 신고</Text>
@@ -242,22 +247,21 @@ const Detail = (props) => {
                     </DetailList>
                 </ListCont>
 
-                <Grid display="block">
-                    이미지 슬라이드
-                    <Grid margin="50px 0 0 0" padding="0 0 130px 0">
-                        <Text
-                         wordBreak="break-all"
-                         fontSize="28px" fontWeight="400"
-                         lineHeight="36px"
-                         color="rgb(34, 34, 34)"
-                         flex="0 0 520px" padding="0 150px 0 0">{post.detail_info.title}</Text>
-                        <Text
-                         color="rgb(101, 101, 101)"
-                         fontSize="16px"
-                         lineHeight="26px"
-                         wordBreak="break-all"
-                         whiteSpace="pre-wrap" >{post.detail_info.contents}</Text>
-                    </Grid>
+                <ImageSlide />
+
+                <Grid margin="50px 0 0 0" padding="0 0 130px 0">
+                    <Text
+                        wordBreak="break-all"
+                        fontSize="28px" fontWeight="400"
+                        lineHeight="36px"
+                        color="rgb(34, 34, 34)"
+                        flex="0 0 520px" padding="0 150px 0 0">{post.detail_info.title}</Text>
+                    <Text
+                        color="rgb(101, 101, 101)"
+                        fontSize="16px"
+                        lineHeight="26px"
+                        wordBreak="break-all"
+                        whiteSpace="pre-wrap" >{post.detail_info.contents}</Text>
                 </Grid>
             </Grid>
         )}
