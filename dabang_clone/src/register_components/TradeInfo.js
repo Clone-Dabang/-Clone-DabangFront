@@ -5,15 +5,15 @@ import "./TradeInfo.css";
 
 const TradeInfo = () => {
   const monthly_html = `<p>월세</p>
-                        <input name="deposit" placeholder="보증금" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <input type="text" name="deposit" placeholder="보증금" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
                         <p class="kzCtLl">/</p>
-                        <input name="price" placeholder="월세" value=""  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <input name="price" placeholder="월세" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
                         <p class="ceMnZE">
                           만원<span>(예 월세 1000만원/50만원)</span>
                         </p>
                         <button class="remove_row_btn1"></button>`;
   const yearly_html = `<p>전세</p>
-                       <input name="deposit" placeholder="전세" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                       <input name="deposit" placeholder="전세" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
                        <p class="ceMnZE">
                          만원<span>(예 전세 2000만원)</span>
                        </p>
@@ -141,7 +141,7 @@ const TradeInfo = () => {
                     </button>
                     <p>
                       <svg width="18" height="18" viewBox="0 0 25 25">
-                        <g fill="none" fill-rule="evenodd">
+                        <g fill="none" fillRule="evenodd">
                           <circle
                             cx="12.6"
                             cy="12.6"
