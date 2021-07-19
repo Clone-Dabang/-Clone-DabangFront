@@ -197,12 +197,12 @@ const AdditionalInfo = () => {
                 <th>구조</th>
                 <td>
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
-                    <label className="styled__OptionCheckbox-sc-1nti3md-7 styled__OptionLargeCheckbox-sc-1nti3md-8 eXAGyI kkuWgy">
-                      <input type="checkbox" name="duplex" />
+                    <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
+                      <input type="radio" name="inner_type" defaultChecked />
                       <p>복층</p>
                     </label>
-                    <label className="styled__OptionCheckbox-sc-1nti3md-7 styled__OptionLargeCheckbox-sc-1nti3md-8 eXAGyI kkuWgy">
-                      <input type="checkbox" name="division" />
+                    <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
+                      <input type="radio" name="inner_type" />
                       <p>1.5룸/주방분리형</p>
                     </label>
                   </div>

@@ -105,12 +105,6 @@ const ImageUpload = () => {
           </p>
         </Grid>
       </Grid>
-      <div className="styled__AgreeWrap-sc-1tbsltx-4 egZnIW">
-        <div className="btn-wrap">
-          <button className="cancel">취소</button>
-          <button className="add">매물등록</button>
-        </div>
-      </div>
     </React.Fragment>
   );
 };
