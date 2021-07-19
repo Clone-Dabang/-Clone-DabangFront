@@ -2,37 +2,49 @@ import React from "react";
 import styled from "styled-components";
 
 const Grid = styled.div`
-  box-sizing: border-box;
   display: ${(props) => props.display || "flex"};
   flex-direction: ${(props) =>
     props.flexDirection === "column" ? "column" : "row"};
   flex: ${(props) => props.flex || ""};
-  ${(props) => (props.border ? `border: ${props.border};` : "")}
-  ${(props) =>
-    props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
-  width: ${(props) => (props.width ? props.width : "100%")};
-  max-width: ${(props) => props.maxWidth || ""};
-  white-space: ${(props) => props.whiteSpace || ""};
+  align-items: ${(props) => props.alignItems || "center"};
+  justify-content: ${(props) => props.justifyContent || "flex-start"};
 
-  height: ${(props) => (props.height ? props.height : "100%")};
-  align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
-  justify-content: ${(props) =>
-    props.justifyContent ? props.justifyContent : "flex-start"};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
+  width: ${(props) => props.width || "100%"};
+  max-width: ${(props) => props.maxWidth || ""};
+  height: ${(props) => props.height || "100%"};
+  max-height: ${(props) => props.maxHeight || "100%"};
+  margin: ${(props) => props.margin || ""};
+  padding: ${(props) => props.padding || ""};
+
+  box-sizing: border-box;
+  box-shadow: ${(props) => props.boxShadow || ""};
+
+  position: ${(props) => props.position || ""};
+  top: ${(props) => props.top || ""};
+  left: ${(props) => props.left || ""};
+  z-index: ${(props) => props.zIndex || ""};
+  overflow: ${(props) => props.overflow || ""};
+  transform: ${(props) => props.transform || ""};
+  transition-duration: ${(props) => props.transitionDuration || ""};
+  transition-timing-function: ${(props) => props.transitionTimingFunction || ""};
+
+  background-color: ${(props) => props.backgroundColor || ""};
+
+  border: ${(props) => props.border || ""};
+  border-bottom: ${(props) => props.borderBottom || ""};
+  border-right: ${(props) => props.borderRight || ""};
+  border-radius: ${(props) => props.borderRadius || ""};
+
+  color: ${(props) => props.color || ""};
+  font-size: ${(props) => props.fontSize || ""};
+  font-family: ${(props) => props.fontFamily || ""};
+  white-space: ${(props) => props.whiteSpace || ""};
+  ${(props) => (props.textAlign ? `text-align: center;` : "")}
+  
   ${(props) => (props.is_root ? `width: 100vw; height: 100vh;` : "")}
   ${(props) =>
     props.hover ? `&:hover{cursor: pointer; background-color: #44444455;}` : ""}
-  ${(props) => (props.color ? `color:${props.color};` : "")}
-  ${(props) => (props.textAlign ? `text-align: center;` : "")}
-  border-bottom: ${(props) => props.borderBottom || ""};
-  border-right: ${(props) => props.borderRight || ""};
-  font-size: ${(props) => props.fontSize || ""};
-  
-  flex: ${(props) => props.flex || ""};
-  font-family: ${(props) => props.fontFamily || ""};
-  border-radius: ${(props) => props.borderRadius || ""};
-  box-shadow: ${(props) => props.boxShadow || ""};
+
 `;
 
 const ListCont = styled.ul`
@@ -128,19 +140,41 @@ const P = styled.p`
   display: ${(props) => props.display || ""};
   word-break: ${(props)=> props.wordBreak || ""};
   white-space: ${(props)=> props.whiteSpace || ""};
+  
+  position: ${(props) => props.position || ""};
+  top: ${(props) => props.top || ""};
+  right : ${(props) => props.right || ""};
+  left : ${(props) => props.left || ""};
+  z-index: ${(props) => props.zIndex || ""};
+
 `;
 const Span = styled.span`
   font-size: ${(props) => props.fontSize || ""};
   color: ${(props) => props.color || ""};
 `;
 
-const Icon = styled.div`
-    width:  ${(props) => props.width || ""};
-    height:  ${(props) => props.height || ""};
+const Image = styled.div`
+    width:  ${(props) => props.width || "100%"};
+    height:  ${(props) => props.height || "100%"};
     background-image: url(${(props) => props.url || ""});
     background-size: cover;
     margin: ${(props) => props.margin || ""};
     padding: ${(props) => props.padding || ""};
+    float: ${(props) => props.float || ""};
+    box-sizing: ${(props) => props.boxSizing || "border-box"};
+    z-index: ${(props) => props.zIndex || ""};
+    flex: ${(props) => props.flex || ""};
+    
+    ${(props) => props.selectImage? 
+     `&::after{
+      content: "";
+      display: block;
+      bottom: 0%;
+      height: 4px;
+      background-color: rgb(50, 108, 249);
+      }
+     `
+      : ""};
 `
 
 // input 스타일!
@@ -151,4 +185,4 @@ const Icon = styled.div`
 //   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 // `;
 
-export { Grid, Text, ListCont, List, DetailList, Icon };
+export { Grid, Text, ListCont, List, DetailList, Image };
