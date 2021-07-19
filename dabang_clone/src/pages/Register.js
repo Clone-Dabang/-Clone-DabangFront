@@ -7,6 +7,7 @@ import TradeInfo from "../register_components/TradeInfo";
 import BasicInfo from "../register_components/BasicInfo";
 import AdditionalInfo from "../register_components/AdditionalInfo";
 import DetailInfo from "../register_components/DetailInfo";
+import ImageUpload from "../register_components/ImageUpload";
 
 const Register = () => {
   return (
@@ -72,6 +73,7 @@ const Register = () => {
         <BasicInfo></BasicInfo>
         <AdditionalInfo></AdditionalInfo>
         <DetailInfo></DetailInfo>
+        <ImageUpload></ImageUpload>
       </Grid>
     </React.Fragment>
   );

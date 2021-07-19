@@ -1,0 +1,165 @@
+#imageUpload .iEQbFd {
+  -webkit-box-pack: center;
+  padding: 20px;
+}
+
+#imageUpload .ldqoTx {
+  width: 100%;
+  padding: 20px 30px;
+  margin: 15px 0px;
+  border: 1px solid rgb(224, 224, 224);
+}
+
+#imageUpload .ldqoTx > p {
+  height: 26px;
+  color: rgb(102, 102, 102);
+  font-size: 15px;
+  line-height: 26px;
+}
+
+#imageUpload .jiOwMe {
+  width: 100%;
+  min-height: 350px;
+  background-color: rgb(244, 244, 244);
+  padding: 9px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+#imageUpload .jiOwMe > svg {
+  margin-bottom: 13px;
+}
+
+#imageUpload .jiOwMe > p {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+#imageUpload .eerxgz {
+  color: rgb(102, 102, 102);
+}
+
+#imageUpload .ntKoY {
+  margin-top: 3px;
+  margin-bottom: 30px;
+  color: rgb(239, 67, 81);
+}
+
+#imageUpload .jiOwMe > div > #uploader {
+  height: 40px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgb(35, 45, 74);
+  padding: 0px 20px;
+  border: 0px;
+  border-radius: 3px;
+}
+
+#imageUpload .cyVvon {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 23px;
+  margin-bottom: 4px;
+  line-height: 20px;
+  user-select: none;
+  position: relative;
+}
+
+#imageUpload .cyVvon > svg {
+  margin-right: 5px;
+}
+
+#imageUpload .cyVvon > span {
+  color: rgb(136, 136, 136);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#imageUpload .cyVvon > a {
+  margin-left: 5px;
+  color: rgb(0, 108, 255);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.egZnIW {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 100%;
+  margin: 30px 0px 150px;
+}
+
+.egZnIW > div.btn-wrap {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.egZnIW > div.btn-wrap button.cancel {
+  color: rgb(34, 34, 34);
+  font-size: 15px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(255, 255, 255);
+}
+
+.egZnIW > div.btn-wrap button {
+  width: 160px;
+  height: 50px;
+}
+
+.egZnIW button {
+  margin: 0px;
+  padding: 0px;
+  border-radius: 0px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  outline: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.egZnIW > div.btn-wrap button.add:hover {
+  background-color: rgb(32, 83, 209);
+}
+
+.egZnIW > div.btn-wrap button.add {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  border: 0px;
+  background-color: rgb(26, 90, 232);
+}
+
+.egZnIW > div.btn-wrap > button + button {
+  margin-left: 12px;
+}
+
+#imageUpload menu,
+#imageUpload ol,
+#imageUpload ul {
+  list-style: none;
+}
+
+#imageUpload select,
+#imageUpload input,
+#imageUpload textarea,
+#imageUpload a {
+  outline: none;
+}
+
+#imageUpload input,
+#imageUpload textarea {
+  user-select: text;
+}
+
+#imageUpload textarea,
+#imageUpload input {
+  appearance: none;
+}
