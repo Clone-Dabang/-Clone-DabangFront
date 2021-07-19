@@ -64,18 +64,6 @@ const DetailInfo = () => {
                   </div>
                 </td>
               </tr>
-              <tr>
-                <th>비공개 메모</th>
-                <td>
-                  <div className="styled__Wrap-sc-17hggnx-0 gUYVyr">
-                    <textarea
-                      name="privateMemo"
-                      placeholder="외부에 공개되지 않으며, 등록자에게만 보이는 메모입니다."
-                      className="styled__Private-sc-17hggnx-3 fbJuVv"
-                    ></textarea>
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </Grid>
