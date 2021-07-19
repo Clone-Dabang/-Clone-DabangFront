@@ -90,13 +90,13 @@
   width: 90px;
   height: 46px;
   padding: 0px 15px;
-  color: rgb(102, 102, 102);
+  color: #fff;
   font-size: 14px;
   line-height: 44px;
   text-align: center;
   border-radius: 3px;
-  border: 1px solid rgb(224, 224, 224);
-  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(26, 90, 232);
+  background-color: rgb(26, 90, 232);
   cursor: pointer;
 }
 #calendarModal {
@@ -133,16 +133,10 @@
   background-color: rgb(239, 245, 255);
   cursor: pointer;
 }
-#basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  #basicInfo
-  menu,
+#basicInfo table tr + tr {
+  border-top: 1px solid rgb(238, 238, 238);
+}
+#basicInfo menu,
 #basicInfo ol,
 #basicInfo ul {
   list-style: none;
