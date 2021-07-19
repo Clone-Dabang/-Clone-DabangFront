@@ -6,6 +6,7 @@ import AddressInfo from "../register_components/AddressInfo";
 import TradeInfo from "../register_components/TradeInfo";
 import BasicInfo from "../register_components/BasicInfo";
 import AdditionalInfo from "../register_components/AdditionalInfo";
+import DetailInfo from "../register_components/DetailInfo";
 
 const Register = () => {
   return (
@@ -70,6 +71,7 @@ const Register = () => {
         <TradeInfo></TradeInfo>
         <BasicInfo></BasicInfo>
         <AdditionalInfo></AdditionalInfo>
+        <DetailInfo></DetailInfo>
       </Grid>
     </React.Fragment>
   );
