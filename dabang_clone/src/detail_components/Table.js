@@ -35,15 +35,15 @@ const Table = (props) => {
                 {!area && (
                 <>
                 {squareMeter}m² &nbsp;
-                <ToggleBtn onClick={()=>calcArea(true)}>평</ToggleBtn>
+                <ToggleBtn onClick={()=>calcArea(true)}>⇆ 평</ToggleBtn>
                 </>
                 )}
-                
+
                 {/* 평수 면적 */}
                 {area && (
                 <>
                 {calcSquare}평 &nbsp;
-                <ToggleBtn onClick={()=>calcArea(false)}>m²</ToggleBtn>
+                <ToggleBtn onClick={()=>calcArea(false)}>⇆ m²</ToggleBtn>
                 </>
                 )}
                

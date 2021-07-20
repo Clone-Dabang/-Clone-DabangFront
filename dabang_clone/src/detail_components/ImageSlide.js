@@ -61,6 +61,7 @@ const ImageSlide = () => {
         {/* 화면에 풀 사이즈로 사진 보이기 */}
         {slide && (
             <Grid
+                zIndex="2"
                 top="0" left="0"
                 backgroundColor="rgba(0, 0, 0, 0.7)"
                 position="fixed" padding="120px 0" flexDirection="column">

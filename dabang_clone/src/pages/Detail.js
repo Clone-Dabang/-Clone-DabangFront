@@ -5,6 +5,7 @@ import { getOnePostServer } from '../redux/modules/room';
 import eye from "../images/eye_shaped_icon.png";
 import link from "../images/link_icon.png";
 import siren from "../images/siren_icon.png";
+
 import ImageSlide from '../detail_components/ImageSlide';
 import Location from '../detail_components/Location';
 import Price from '../detail_components/Price';
@@ -53,7 +54,7 @@ const Detail = (props) => {
                         >
                             <Text
                             margin="0 0 5px">
-                                {post.sale_info.room_type}
+                                {post.sale_info.room_type}({post.additional_info.inner_type})
                             </Text>
                         {post.trade_info.is_montly?
                             <Grid display="block" whiteSpace="nowrap">
@@ -102,7 +103,9 @@ const Detail = (props) => {
                                 <>
                                 {post.basic_info.building_area}
                                   m²
-                                <ToggleBtn onClick={()=>calcArea(true)}>평</ToggleBtn>
+                                <ToggleBtn onClick={()=>calcArea(true)}>
+                                    ⇆ 평
+                                    </ToggleBtn>
                                 </>
                                 )}
                                 
@@ -110,8 +113,8 @@ const Detail = (props) => {
                                 {area && (
                                 <>
                                 {(post.basic_info.building_area*0.3025).toFixed(1)}
-                                  평&nbsp;
-                                <ToggleBtn onClick={()=>calcArea(false)}>m²</ToggleBtn>
+                                 평&nbsp;
+                                <ToggleBtn onClick={()=>calcArea(false)}>⇆ m²</ToggleBtn>
                                 </>
                                 )}
 

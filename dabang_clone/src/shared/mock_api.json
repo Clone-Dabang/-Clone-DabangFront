@@ -4,30 +4,31 @@
         "id": "0",
         "sale_info": {"room_type": "원룸"},
         "address_info": {
-            "road": "가가로 14",
-            "original": "상예동 4576"
+            "road": "서울 강남구 강남대로 708",
+            "original": "서울 강남구 압구정동 386-1",
+            "latitude": 37.524592485999236,
+            "longitude": 127.0159646135124
         },
         "trade_info": {
-            "monthly_deposit": 300,
-            "yearly_deposit": 9000,
-            "monthly_pay":40,
+            "monthly_deposit": "300",
+            "yearly_deposit": "9000",
+            "monthly_pay":"40",
             "is_montly": true,
             "is_yearly": true
         },
         "basic_info": {
             "building_area": 13,
-            "floor": 13,
-            "moving_date": "ddMMMyyyy"
+            "floor": "13",
+            "moving_date": "2021-07-23"
         }, 
         "additional_info": {
-            "management_fee": 5,
+            "management_fee": "5",
             "is_parking_space": true,
             "has_pet": true,
             "has_elevator": true,
             "has_balcony": true,
             "has_built_in": true,
-            "construction": "복층",
-            "option": ["인덕션", "전자레인지", "에어컨"],
+            "inner_type": "1.5룸/주방분리형",
             "loan_possibility": true
         },
         "detail_info": {
@@ -37,10 +38,10 @@
         },
         "appliance": {
             "has_induction": false,
-            "has_microwave": false,
-            "has_air_conditioner": false,
-            "has_washer": false,
-            "has_tv": false,
+            "has_microwave": true,
+            "has_air_conditioner": true,
+            "has_washer": true,
+            "has_tv": true,
             "has_closet": false,
             "has_bed": false,
             "has_desk": false,
