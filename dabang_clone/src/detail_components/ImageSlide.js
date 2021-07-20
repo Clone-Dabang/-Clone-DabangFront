@@ -1,5 +1,10 @@
 import React from 'react';
-import { Grid, Image, Text } from './Styles';
+import { Grid, Image, Text } from '../components/Styles';
+import cancle from "../images/cancle_icon.png";
+import prev from "../images/previous_icon.png";
+import nxt from "../images/next_icon.png";
+
+
 
 const ImageSlide = () => {
     const [slide, setSlide] = React.useState(false);
@@ -36,15 +41,21 @@ const ImageSlide = () => {
     
     return (
         <React.Fragment>
-            <Grid onClick={()=>setSlide(true)} margin="30px 0 0 0" display="block" height="420px">
+            <Grid cursor="pointer" position="relative" onClick={()=>setSlide(true)} margin="30px 0 0 0" display="block" height="420px">
                 <Image float="left" width="620px" height="100%" url={images[0]} />
-                    {images.map((item,idx) => {
-                        if(idx > 0 && idx < 5)
-                            return <Image float="left" width="280px" height="50%" url={item} />;
-                        else if(idx === 5) 
-                            return <Image> 전체 보기</Image>;
-                        
-                    })}
+                {images.map((item,idx) => {
+                    if(idx > 0 && idx < 4)
+                        return <Image float="left" width="280px" height="50%" url={item} />;
+                    else if(idx === 4) 
+                        return <Image position="relative" float="left" width="280px" height="50%"
+                         url={item} showAllBG>
+                            <Image showAllText>
+                                <Text fontSize="80px" fontWeight="10">+</Text><br />
+                                {imgCnt}개 전체 보기
+                            </Image>                             
+                        </Image>;
+                })}
+
             </Grid>
 
         {/* 화면에 풀 사이즈로 사진 보이기 */}
@@ -54,11 +65,15 @@ const ImageSlide = () => {
                 backgroundColor="rgba(0, 0, 0, 0.7)"
                 position="fixed" padding="120px 0" flexDirection="column">
                 {/* 큰 이미지 슬라이드 */}
-                <Grid maxHeight="640px" padding="0 22px" justifyContent="space-between" alignItems="center">
-                    {/* 현재 이미지 순서 */}
-                    <Text zIndex="1" position="absolute" top="20%" left="20%" fontSize="50px">{-image/imgWidth+1}/{imgCnt}</Text>
+                <Grid position="relative" maxHeight="640px" padding="0 22px" justifyContent="center" alignItems="center">
                     
-                    <Text fontSize="50px" onClick={previous}>이전</Text>
+                    {/* 현재 이미지 순서 */}
+                    <Text zIndex="2" color="white" position="relative" top="-47%" left="40px" fontSize="35px">{-image/imgWidth+1}/{imgCnt}</Text>
+                    
+                    <Image url={prev}
+                        width="70px" height="70px" cursor="pointer" zIndex="2"
+                        position="relative" top="0%" left="-20px" onClick={previous}
+                    />
                     <Grid maxWidth="868px" overflow="hidden">
                         <Grid transitionDuration="0.5s" transform={`translateX(${image}px)`}>
                             {images.map((item,idx) => (
@@ -66,9 +81,14 @@ const ImageSlide = () => {
                             ))}
                         </Grid>
                     </Grid>
-                    <Text fontSize="50px" onClick={next}>다음</Text>
-                    <Text position="absolute" top="20%" right="10%" fontSize="50px" onClick={()=>setSlide(false)}>닫기</Text>
-
+                    <Image url={nxt}
+                        width="70px" height="70px" cursor="pointer"
+                        position="relative" top="0%" right="-20px" onClick={next}
+                    />
+                    <Image url={cancle}
+                         width="30px" height="30px" cursor="pointer"
+                         position="relative" top="-47%" right="20px" onClick={()=>setSlide(false)}
+                         />
                 </Grid>
 
                 {/* 작은 이미지 슬라이드 */}
@@ -76,7 +96,7 @@ const ImageSlide = () => {
                  justifyContent="center"
                  maxWidth="1040px" overflow="hidden"
                  maxHeight="93px" margin="20px 78px">
-                    <Grid position="relative" transitionDuration="0.5s" transform="">
+                    <Grid cursor="pointer" position="relative" transitionDuration="0.5s" transform="">
                         {images.map((item, idx) => {
                             if ((-image/imgWidth)!==idx)
                                 return <Image  onClick={()=>changeImage(-idx*imgWidth)} key={idx} flex="0 0 140px" margin="0 10px 0 0" url={item} />;
