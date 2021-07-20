@@ -172,6 +172,7 @@ const Image = styled.div`
     margin: ${(props) => props.margin || ""};
     padding: ${(props) => props.padding || ""};
 
+    display: ${(props) => props.display || ""};
     float: ${(props) => props.float || ""};
     box-sizing: ${(props) => props.boxSizing || "border-box"};
     z-index: ${(props) => props.zIndex || ""};
