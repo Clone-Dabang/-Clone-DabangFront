@@ -23,7 +23,7 @@ const AddressInfo = () => {
         longitude: longitude,
       })
     );
-  }, [jibun_address, road_address]);
+  }, [jibun_address, road_address, latitude, longitude]);
 
   useEffect(() => {
     var mapContainer = document.getElementById("staticMap"), // 지도를 표시할 div
@@ -49,8 +49,10 @@ const AddressInfo = () => {
           setJibun(data.jibunAddress);
           setRoad(data.roadAddress);
           var center = map.getCenter();
-          setLatitude(center.getLat());
-          setLongitude(center.getLng());
+          const Lat = center.getLat();
+          const Lng = center.getLng();
+          setLatitude(Lat);
+          setLongitude(Lng);
 
           // 주소 정보를 해당 필드에 넣는다.
           document.getElementById("daumAddressInput").value = addr;

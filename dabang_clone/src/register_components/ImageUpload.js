@@ -2,8 +2,47 @@ import React, { useEffect, useState } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./ImageUpload.css";
+import AWS from "aws-sdk";
+import { config } from "../shared/Image";
+import moment from "moment";
+import { createImageUpload } from "../redux/modules/room";
 
 const ImageUpload = () => {
+  const dispatch = useDispatch();
+
+  AWS.config.update({
+    region: "ap-northeast-2", // 버킷이 존재하는 리전을 문자열로 입력합니다. (Ex. "ap-northeast-2")
+    credentials: new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: "ap-northeast-2:5ff31b93-dc5f-416c-a12c-aa67c74c7025", // cognito 인증 풀에서 받아온 키를 문자열로 입력합니다. (Ex. "ap-northeast-2...")
+    }),
+  });
+
+  const handleFileInput = (e) => {
+    // input 태그를 통해 선택한 파일 객체
+    const file = e.target.files[0];
+
+    // S3 SDK에 내장된 업로드 함수
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        Bucket: "dabangclone", // 업로드할 대상 버킷명
+        Key: moment().format("YYYY-MM-DD-HH-mm-ss") + ".jpg", // 업로드할 파일명 (* 확장자를 추가해야 합니다!)
+        Body: file, // 업로드할 파일 객체
+      },
+    });
+
+    const promise = upload.promise();
+
+    promise.then(
+      function (data) {
+        alert("이미지 업로드에 성공했습니다.");
+        dispatch(createImageUpload(data.Location));
+      },
+      function (err) {
+        return alert("오류가 발생했습니다: ", err.message);
+      }
+    );
+  };
+
   return (
     <React.Fragment>
       <Grid
@@ -76,9 +115,15 @@ const ImageUpload = () => {
               있는 매물은 비공개 처리 됩니다.
             </p>
             <div>
-              <button id="uploader" className="dz-clickable">
-                사진 추가하기
-              </button>
+              <input
+                type="file"
+                id="upload"
+                className="image-upload"
+                onChange={handleFileInput}
+              />
+              <label htmlFor="upload" className="image-upload-wrapper">
+                사진 등록
+              </label>
             </div>
           </div>
           <p className="styled__Text-wjzlfv-3 cyVvon">

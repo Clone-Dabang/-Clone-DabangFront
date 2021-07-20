@@ -55,7 +55,7 @@ const initialState = {
         contents: "상세 설명",
       },
       image_upload: {
-        url: [""],
+        url: [],
       },
     },
   ],
@@ -168,7 +168,7 @@ export default handleActions(
       }),
     [CREATE_IMAGE_UPLOAD]: (state, action) =>
       produce(state, (draft) => {
-        draft.list[0].image_upload = action.payload.image_upload;
+        draft.list[0].image_upload.url.push(action.payload.image_upload);
       }),
   },
   initialState
