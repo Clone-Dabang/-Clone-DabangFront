@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react';
-import {Grid, Text, Image, ListCont, DetailList} from "../components/Styles";
+import {Grid, Text, Image, A, ToggleBtn} from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOnePostServer } from '../redux/modules/room';
 import eye from "../images/eye_shaped_icon.png";
 import link from "../images/link_icon.png";
 import siren from "../images/siren_icon.png";
-import ImageSlide from '../components/ImageSlide';
+import ImageSlide from '../detail_components/ImageSlide';
+import Location from '../detail_components/Location';
+import Price from '../detail_components/Price';
+import Option from '../detail_components/Option';
+import Table from '../detail_components/Table';
 
 const Detail = (props) => {
     const dispatch = useDispatch();
@@ -13,27 +17,26 @@ const Detail = (props) => {
     // const id = 0;
     const id = props.match.params.id;
 
+    // 상세페이지 게시글 가져오기
     const post_list = useSelector((store) => store.room.list);
-    console.log(post_list,"post_list")
-
+    console.log(post_list,"post_list");
     const post_idx = post_list.findIndex((p) => p.id === id);
-    console.log(post_idx,"postindex")
+    console.log(post_idx,"postindex");
     const post = post_list[post_idx];
-
      useEffect(() => {
         if (post) {
         return;
         }
         dispatch(getOnePostServer(id));
     }, []);   
-
     console.log(post,"post");
 
 
-    
-    return (
-        <React.Fragment>
+    //제곱미터, 평수 토글
+    const [area,calcArea] = React.useState(false);
 
+    return (
+        <Grid position="relative" flexDirection="column" justifyContent="center">
         {post && (
             <Grid
              fontFamily={`NanumGothic, -apple-system, sans-serif`}
@@ -90,10 +93,28 @@ const Detail = (props) => {
                         alignItems="flex-start"  width="auto"
                         borderRight="1px solid rgb(231, 231, 231)"
                         padding="0 28px" flexDirection="column">
-                            <Text margin="0 0 5px">전용면적</Text>
+                            <Text margin="0 0 5px">공급면적</Text>
                             <Text fontSize="30px" fontWeight="700"
                             lineHeight="45px">
+
+                                {/* 제곱미터 면적 */}
+                                {!area && (
+                                <>
                                 {post.basic_info.building_area}
+                                  m²
+                                <ToggleBtn onClick={()=>calcArea(true)}>평</ToggleBtn>
+                                </>
+                                )}
+                                
+                                {/* 평수 면적 */}
+                                {area && (
+                                <>
+                                {(post.basic_info.building_area*0.3025).toFixed(1)}
+                                  평&nbsp;
+                                <ToggleBtn onClick={()=>calcArea(false)}>m²</ToggleBtn>
+                                </>
+                                )}
+
                             </Text>
                         </Grid>
                         <Grid
@@ -140,115 +161,17 @@ const Detail = (props) => {
                     <Text>※ 중개사무소 대표가 직접 확인하고 승인한 매물입니다.</Text>
                 </Grid>
 
+
                 {/* 확인매물 표시 여부 필요 */}
                 
-                <ListCont
-                 borderTop="2px solid black"
-                 display="flex" flexWrap="wrap"
-                 boxSizing="border-box"
-                 >
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                            해당층/건물층
-                        </Text>
-                        <Text>/{post.basic_info.floor}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                        전용/계약면적</Text>
-                        <Text>/{post.basic_info.building_area}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                        방 수/욕실 수</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             방향
-                        </Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             난방종류</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             빌트인</Text>
-                        <Text>{post.additional_info.has_built_in}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             건물 주차 수</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             세대당 주차수</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                        color="rgb(134, 134, 134)">
-                             엘리베이터</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             반려동물</Text>
-                        <Text>{post.additional_info.has_pet}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             베란다/발코니</Text>
-                        <Text>{post.additional_info.has_balcony}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             전세자금대출</Text>
-                        <Text>{post.additional_info.loan_possibility}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             입주가능일</Text>
-                        <Text>{post.basic_info.moving_date}</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             주용도</Text>
-                        <Text>단독주택</Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             사용승인일</Text>
-                        <Text></Text>
-                    </DetailList>
-                    <DetailList>
-                        <Text flex="0 0 95px"
-                         color="rgb(134, 134, 134)">
-                             최초 등록일</Text>
-                        <Text></Text>
-                    </DetailList>
-                </ListCont>
 
+                {/* 방 정보 표 */}
+                <Table post={post}/>
+
+                {/* 이미지 슬라이드 */}
                 <ImageSlide />
 
+                {/* 작성글의 제목, 내용 */}
                 <Grid margin="50px 0 0 0" padding="0 0 130px 0">
                     <Text
                         wordBreak="break-all"
@@ -265,8 +188,57 @@ const Detail = (props) => {
                 </Grid>
             </Grid>
         )}
-        </React.Fragment>
-    );
+
+        {post && (
+        <>
+        {/* 가격정보, 옵션, 위치 링크 */}
+        <Grid position="sticky" top="0"
+            backgroundColor="white"
+            fontFamily={`NanumGothic, -apple-system, sans-serif`}
+            height="58px"
+            justifyContent="space-around"
+            borderTop="1px solid rgb(221, 221, 221)"
+            borderBottom="1px solid rgb(221, 221, 221)">
+            
+            <Text
+            color="rgb(136, 136, 136)"
+            fontSize="15px"
+            textAlign="center"
+            cursor="pointer">
+                <A href="#price">가격정보</A>
+            </Text>
+            <Text
+            color="rgb(136, 136, 136)"
+            fontSize="15px"
+            textAlign="center"
+            cursor="pointer">
+                <A href="#option">옵션</A>
+            </Text>
+            <Text
+            color="rgb(136, 136, 136)"
+            fontSize="15px"
+            textAlign="center"
+            cursor="pointer">
+                <A href="#location">위치</A>
+            </Text>
+        </Grid>
+
+
+        <Grid width="1180px" display="block"
+              fontFamily={`NanumGothic, -apple-system, sans-serif`}>
+            {/* 가격정보 */}
+            <Price />
+
+            {/* 옵션 */}
+            <Option appliance={post.appliance}/>
+
+            {/* 위치 */}
+            <Location address_info={post.address_info} />
+        </Grid>
+        </>    
+        )}
+    </Grid>
+    )
 };
 
 export default Detail;

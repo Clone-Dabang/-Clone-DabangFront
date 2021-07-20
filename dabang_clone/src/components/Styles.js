@@ -6,6 +6,7 @@ const Grid = styled.div`
   flex-direction: ${(props) =>
     props.flexDirection === "column" ? "column" : "row"};
   flex: ${(props) => props.flex || ""};
+  ${(props) => (props.flexWrap ? `flex-wrap: ${props.flexWrap};` : "")}
   align-items: ${(props) => props.alignItems || "center"};
   justify-content: ${(props) => props.justifyContent || "flex-start"};
 
@@ -30,13 +31,18 @@ const Grid = styled.div`
 
   background-color: ${(props) => props.backgroundColor || ""};
 
+  cursor: ${(props) => props.cursor || ""};
+
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.borderBottom || ""};
+  border-top: ${(props) => props.borderTop || ""};
   border-right: ${(props) => props.borderRight || ""};
   border-radius: ${(props) => props.borderRadius || ""};
 
   color: ${(props) => props.color || ""};
   font-size: ${(props) => props.fontSize || ""};
+  font-weight: ${(props) => props.fontWeight || ""};
+  
   font-family: ${(props) => props.fontFamily || ""};
   white-space: ${(props) => props.whiteSpace || ""};
   ${(props) => (props.textAlign ? `text-align: center;` : "")}
@@ -147,6 +153,9 @@ const P = styled.p`
   left : ${(props) => props.left || ""};
   z-index: ${(props) => props.zIndex || ""};
 
+  border-top: ${(props) => props.borderTop || ""};
+
+
 `;
 const Span = styled.span`
   font-size: ${(props) => props.fontSize || ""};
@@ -156,25 +165,125 @@ const Span = styled.span`
 const Image = styled.div`
     width:  ${(props) => props.width || "100%"};
     height:  ${(props) => props.height || "100%"};
+
     background-image: url(${(props) => props.url || ""});
     background-size: cover;
+
     margin: ${(props) => props.margin || ""};
     padding: ${(props) => props.padding || ""};
+
     float: ${(props) => props.float || ""};
     box-sizing: ${(props) => props.boxSizing || "border-box"};
     z-index: ${(props) => props.zIndex || ""};
     flex: ${(props) => props.flex || ""};
-    
+    position: ${(props) => props.position || ""};
+    top: ${(props) => props.top || ""};
+    bottom: ${(props) => props.bottom || ""};
+    right: ${(props) => props.right || ""};
+    left: ${(props) => props.left || ""};
+
+    text-align: ${(props) => props.textAlign || ""};
+    line-height:  ${(props) => props.lineHeight || ""};;
+
+    color:  ${(props) => props.color || ""};
+
+    cursor: ${(props) => props.cursor || ""};
+
     ${(props) => props.selectImage? 
      `&::after{
       content: "";
       display: block;
       bottom: 0%;
       height: 4px;
+      position: absolute;
+      width: 140px;
       background-color: rgb(50, 108, 249);
       }
      `
       : ""};
+
+    ${(props) => props.showAllBG? 
+     `
+      &::before{
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 280px;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      }
+       
+     `
+      : ""};
+    ${(props) => props.showAllText? 
+     `
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+     `
+      : ""};
+      
+`
+
+const A = styled.a`
+  text-decoration: none;
+`
+
+const Table = styled.table`
+  width: 850px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(204, 204, 204);
+  border-bottom: 1px solid rgb(204, 204, 204);
+  margin: 30px auto 0px;
+  border-collapse: collapse;
+`
+const Tbody = styled.tbody`
+`
+const Tr = styled.tr`
+  color: ${(props) => props.color || ""};
+  font-size: ${(props) => props.fontSize || ""};
+  font-weight: ${(props) => props.fontWeight || ""};
+  height: ${(props) => props.height || ""};
+  line-height: ${(props) => props.lineHeight || ""};
+`
+const Td_lineOne = styled.td`
+  text-align: center;
+  color: rgb(34, 34, 34);
+  font-size: 15px;
+  font-weight: 400;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid rgb(231, 231, 231);
+  border-left:
+   ${(props)=>props.borderLeft?
+   " 1px solid rgb(231, 231, 231);" : ""};
+`
+const Td_lineTwo = styled.td`
+  color: rgb(101, 101, 101);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 22px;
+  border-left:
+  ${(props)=>props.borderLeft?
+   " 1px solid rgb(231, 231, 231);" : ""};
+`
+
+const ToggleBtn = styled.button`
+    color: rgb(34, 34, 34);
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 8px;
+    height: 24px;
+    font-size: 11px;
+    cursor: pointer;
 `
 
 // input 스타일!
@@ -185,4 +294,4 @@ const Image = styled.div`
 //   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 // `;
 
-export { Grid, Text, ListCont, List, DetailList, Image };
+export { Grid, Text, ListCont, List, DetailList, Image, Table, Tbody, Tr, Td_lineOne, Td_lineTwo, A, ToggleBtn };

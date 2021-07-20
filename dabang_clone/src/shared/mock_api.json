@@ -33,6 +33,22 @@
         "detail_info": {
             "title": "제목",
             "contents": "상세 설명"
+        
+        },
+        "appliance": {
+            "has_induction": false,
+            "has_microwave": false,
+            "has_air_conditioner": false,
+            "has_washer": false,
+            "has_tv": false,
+            "has_closet": false,
+            "has_bed": false,
+            "has_desk": false,
+            "has_shoe_closet": false,
+            "has_bidet": false,
+            "has_gas_range": false,
+            "has_refrigerator": false,
+            "has_door_lock": false
         },
         "image_upload": {
             "url": [
