@@ -1,19 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./TradeInfo.css";
+import { createTradeInfo } from "../redux/modules/room";
 
 const TradeInfo = () => {
+  const dispatch = useDispatch();
+  const [isMonthly, setIsMonthly] = useState(false);
+  const [isYearly, setIsYearly] = useState(false);
+  const [monthlyDeposit, setMonthlyDeposit] = useState(null);
+  const [monthlyPay, setMonthlyPay] = useState(null);
+  const [yearlyDeposit, setYearlyDeposit] = useState(null);
+
+  useEffect(() => {
+    dispatch(
+      createTradeInfo({
+        is_monthly: isMonthly,
+        is_yearly: isYearly,
+        monthly_deposit: monthlyDeposit,
+        monthly_pay: monthlyPay,
+        yearly_deposit: yearlyDeposit,
+      })
+    );
+  }, [isMonthly, isYearly, monthlyDeposit, monthlyPay, yearlyDeposit]);
+
+  const monthlyDepositInputOnchange = () => {
+    const monthly_deposit_input = document.getElementById(
+      "monthly_deposit_input"
+    );
+    monthly_deposit_input.onchange = function () {
+      setMonthlyDeposit(monthly_deposit_input.value);
+    };
+  };
+  const monthlyPayInputOnchange = () => {
+    const monthly_pay_input = document.getElementById("monthly_pay_input");
+    monthly_pay_input.onchange = function () {
+      setMonthlyPay(monthly_pay_input.value);
+    };
+  };
+  const yearlyDepositInputOnchange = () => {
+    const yearly_deposit_input = document.getElementById(
+      "yearly_deposit_input"
+    );
+    yearly_deposit_input.onchange = function () {
+      setYearlyDeposit(yearly_deposit_input.value);
+    };
+  };
+
   const monthly_html = `<p>월세</p>
-                        <input type="text" name="deposit" placeholder="보증금" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
+                        <input id="monthly_deposit_input" type="text" name="deposit" placeholder="보증금" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" autocomplete="off" />
                         <p class="kzCtLl">/</p>
-                        <input name="price" placeholder="월세" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
+                        <input id="monthly_pay_input" name="price" placeholder="월세" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" autocomplete="off" />
                         <p class="ceMnZE">
                           만원<span>(예 월세 1000만원/50만원)</span>
                         </p>
                         <button class="remove_row_btn1"></button>`;
   const yearly_html = `<p>전세</p>
-                       <input name="deposit" placeholder="전세" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" />
+                       <input id="yearly_deposit_input" name="deposit" placeholder="전세" oninput="this.value = this.value.replace(/[^0-9.]/g, '');" autocomplete="off" />
                        <p class="ceMnZE">
                          만원<span>(예 전세 2000만원)</span>
                        </p>
@@ -35,7 +78,6 @@ const TradeInfo = () => {
         tr.previousSibling.remove();
       } else {
         target.disabled = true;
-        console.log(target.parentNode);
         target.parentNode.remove();
       }
     };
@@ -61,7 +103,10 @@ const TradeInfo = () => {
       remove_row_btn1.addEventListener("click", function (event) {
         remove_tr(event.target);
         document.getElementById("monthly").disabled = false;
+        setIsMonthly(false);
       });
+      monthlyDepositInputOnchange();
+      monthlyPayInputOnchange();
     } else {
       if (tbody.getElementsByTagName("tr").length === 1) {
         tbody.getElementsByTagName("th")[0].remove();
@@ -81,7 +126,9 @@ const TradeInfo = () => {
       remove_row_btn2.addEventListener("click", function (event) {
         remove_tr(event.target);
         document.getElementById("yearly").disabled = false;
+        setIsYearly(false);
       });
+      yearlyDepositInputOnchange();
     }
   };
 
@@ -127,6 +174,7 @@ const TradeInfo = () => {
                       id="monthly"
                       onClick={(e) => {
                         payBtnClick(e.target.id);
+                        setIsMonthly(true);
                       }}
                     >
                       월세
@@ -135,6 +183,7 @@ const TradeInfo = () => {
                       id="yearly"
                       onClick={(e) => {
                         payBtnClick(e.target.id);
+                        setIsYearly(true);
                       }}
                     >
                       전세

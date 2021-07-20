@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./SaleInfo.css";
+import { createSaleInfo } from "../redux/modules/room";
 
 const SaleInfo = () => {
+  const [roomType, setRoomType] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(createSaleInfo(roomType));
+  }, [roomType]);
+
   return (
     <React.Fragment>
       <Grid
@@ -42,31 +50,61 @@ const SaleInfo = () => {
                 <ul>
                   <li>
                     <label>
-                      <input type="radio" name="roomType" />
+                      <input
+                        type="radio"
+                        name="roomType"
+                        onClick={() => {
+                          setRoomType("원룸");
+                        }}
+                      />
                       <p>원룸</p>
                     </label>
                   </li>
                   <li>
                     <label>
-                      <input type="radio" name="roomType" />
+                      <input
+                        type="radio"
+                        name="roomType"
+                        onClick={() => {
+                          setRoomType("투룸");
+                        }}
+                      />
                       <p>투룸</p>
                     </label>
                   </li>
                   <li>
                     <label>
-                      <input type="radio" name="roomType" />
+                      <input
+                        type="radio"
+                        name="roomType"
+                        onClick={() => {
+                          setRoomType("쓰리룸");
+                        }}
+                      />
                       <p>쓰리룸</p>
                     </label>
                   </li>
                   <li>
                     <label>
-                      <input type="radio" name="roomType" />
+                      <input
+                        type="radio"
+                        name="roomType"
+                        onClick={() => {
+                          setRoomType("오피스텔");
+                        }}
+                      />
                       <p>오피스텔</p>
                     </label>
                   </li>
                   <li>
                     <label>
-                      <input type="radio" name="roomType" />
+                      <input
+                        type="radio"
+                        name="roomType"
+                        onClick={() => {
+                          setRoomType("아파트");
+                        }}
+                      />
                       <p>아파트</p>
                     </label>
                   </li>

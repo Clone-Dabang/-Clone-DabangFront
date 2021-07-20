@@ -8,8 +8,11 @@ import BasicInfo from "../register_components/BasicInfo";
 import AdditionalInfo from "../register_components/AdditionalInfo";
 import DetailInfo from "../register_components/DetailInfo";
 import ImageUpload from "../register_components/ImageUpload";
+import { createPostServer } from "../redux/modules/room";
 
 const Register = () => {
+  const dispatch = useDispatch();
+
   return (
     <React.Fragment>
       <Grid
@@ -77,7 +80,14 @@ const Register = () => {
         <div className="styled__AgreeWrap-sc-1tbsltx-4 egZnIW">
           <div className="btn-wrap">
             <button className="cancel">취소</button>
-            <button className="add">매물등록</button>
+            <button
+              className="add"
+              onClick={() => {
+                dispatch(createPostServer());
+              }}
+            >
+              매물등록
+            </button>
           </div>
         </div>
       </Grid>

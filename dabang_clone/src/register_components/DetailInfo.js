@@ -2,8 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./DetailInfo.css";
+import { createDetailInfo } from "../redux/modules/room";
 
 const DetailInfo = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  useEffect(() => {
+    dispatch(
+      createDetailInfo({
+        title: title,
+        contents: desc,
+      })
+    );
+  }, [title, desc]);
+
   return (
     <React.Fragment>
       <Grid
@@ -47,7 +61,9 @@ const DetailInfo = () => {
                       type="text"
                       placeholder="예)신논현역 도보 5분거리, 혼자 살기 좋은 방 입니다."
                       className="styled__Title-sc-17hggnx-1 dFOPJc"
-                      // value=""
+                      onChange={(e) => {
+                        setTitle(e.target.value);
+                      }}
                     />
                   </div>
                 </td>
@@ -60,6 +76,9 @@ const DetailInfo = () => {
                       name="memo"
                       placeholder="상세설명 작성 주의사항&#13;&#10;- 방 정보와 관련없는 홍보성 정보는 입력하실 수 없습니다. (홈페이지 주소, 블로그, SNS, 메신저ID, 전화번호, 이메일 등)&#13;&#10;- 중개수수료를 언급한 내용은 입력할 수 없습니다. (중개수수료 무료, 꽁짜, 반값 등)&#13;&#10;* 주의사항 위반시 허위매물로 간주되어 매물 삭제 및 이용의 제한이 있을 수 있습니다.&#13;&#10;* 다방의 매물등록 규정에 위반되는 금칙어는 등록이 불가합니다."
                       className="styled__Memo-sc-17hggnx-2 knSOrZ"
+                      onChange={(e) => {
+                        setDesc(e.target.value);
+                      }}
                     ></textarea>
                   </div>
                 </td>
