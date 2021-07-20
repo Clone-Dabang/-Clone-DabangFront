@@ -128,13 +128,6 @@
   padding: 12px 20px;
 }
 
-#tradeInfo table td > div#btn_area {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  padding: 12px 20px;
-}
-
 #tradeInfo table td > div > button {
   width: 100px;
   height: 40px;

@@ -2,9 +2,89 @@ import React, { useEffect, useState } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./AdditionalInfo.css";
+import { createAdditionalInfo, createAppliance } from "../redux/modules/room";
 
 const AdditionalInfo = () => {
-  const [parkingPossibility, setParkingPossibility] = useState(false);
+  const dispatch = useDispatch();
+  const [managementFee, setManagementFee] = useState(null);
+  const [isParkingSpace, setIsParkingSpace] = useState(false);
+  const [hasPet, setHasPet] = useState(false);
+  const [hasElevator, setHasElevator] = useState(false);
+  const [hasBalcony, setHasBalcony] = useState(false);
+  const [hasBuiltIn, setHasBuiltIn] = useState(false);
+  const [innerType, setInnerType] = useState(false);
+  const [loanPossibility, setLoanPossibility] = useState(false);
+  const [hasInduction, sethasInduction] = useState(false);
+  const [hasMicrowave, sethasMicrowave] = useState(false);
+  const [hasAirConditioner, sethasAirConditioner] = useState(false);
+  const [hasWasher, sethasWasher] = useState(false);
+  const [hasTv, sethasTv] = useState(false);
+  const [hasCloset, sethasCloset] = useState(false);
+  const [hasBed, sethasBed] = useState(false);
+  const [hasDesk, sethasDesk] = useState(false);
+  const [hasShoeCloset, sethasShoeCloset] = useState(false);
+  const [hasBidet, sethasBidet] = useState(false);
+  const [hasGasRange, sethasGasRange] = useState(false);
+  const [hasRefrigerator, sethasRefrigerator] = useState(false);
+  const [hasDoorLock, sethasDoorLock] = useState(false);
+
+  useEffect(() => {
+    dispatch(
+      createAdditionalInfo({
+        management_fee: managementFee,
+        is_parking_space: isParkingSpace,
+        has_pet: hasPet,
+        has_elevator: hasElevator,
+        has_balcony: hasBalcony,
+        has_built_in: hasBuiltIn,
+        inner_type: innerType ? "1.5룸/주방분리형" : "복층",
+        loan_possibility: loanPossibility,
+      })
+    );
+  }, [
+    managementFee,
+    isParkingSpace,
+    hasPet,
+    hasElevator,
+    hasBalcony,
+    hasBuiltIn,
+    innerType,
+    loanPossibility,
+  ]);
+
+  useEffect(() => {
+    dispatch(
+      createAppliance({
+        has_induction: hasInduction,
+        has_microwave: hasMicrowave,
+        has_air_conditioner: hasAirConditioner,
+        has_washer: hasWasher,
+        has_tv: hasTv,
+        has_closet: hasCloset,
+        has_bed: hasBed,
+        has_desk: hasDesk,
+        has_shoe_closet: hasShoeCloset,
+        has_bidet: hasBidet,
+        has_gas_range: hasGasRange,
+        has_refrigerator: hasRefrigerator,
+        has_door_lock: hasDoorLock,
+      })
+    );
+  }, [
+    hasInduction,
+    hasMicrowave,
+    hasAirConditioner,
+    hasWasher,
+    hasTv,
+    hasCloset,
+    hasBed,
+    hasDesk,
+    hasShoeCloset,
+    hasBidet,
+    hasGasRange,
+    hasRefrigerator,
+    hasDoorLock,
+  ]);
 
   return (
     <React.Fragment>
@@ -51,6 +131,7 @@ const AdditionalInfo = () => {
                         e.target.value = e.target.value
                           .replace(/[^0-9.]/g, "")
                           .replace(/(\..*)\./g, "$1");
+                        setManagementFee(e.target.value);
                       }}
                     />
                     <p className="styled__Space-sc-1nti3md-3 ipuDqc">만원</p>
@@ -67,7 +148,7 @@ const AdditionalInfo = () => {
                         name="parking"
                         defaultChecked
                         onClick={() => {
-                          setParkingPossibility(false);
+                          setIsParkingSpace(false);
                         }}
                       />
                       {/* 리액트에서는 input의 기본 체크 값에 checked가 아니라 defaultChecked를 써야 정상동작함 */}
@@ -78,53 +159,35 @@ const AdditionalInfo = () => {
                         type="radio"
                         name="parking"
                         onClick={() => {
-                          setParkingPossibility(true);
-                          console.log(parkingPossibility);
+                          setIsParkingSpace(true);
                         }}
                       />
                       <p>가능</p>
                     </label>
-                    {parkingPossibility ? (
-                      <input
-                        name="parkingCost"
-                        className="styled__Cost-sc-1nti3md-2 dZzEqg"
-                        // value=""
-                        style={{ marginLeft: "10px" }}
-                        onInput={(e) => {
-                          e.target.value = e.target.value
-                            .replace(/[^0-9.]/g, "")
-                            .replace(/(\..*)\./g, "$1");
-                        }}
-                      />
-                    ) : (
-                      <input
-                        name="parkingCost"
-                        disabled
-                        className="styled__Cost-sc-1nti3md-2 dZzEqg"
-                        // value=""
-                        style={{ marginLeft: "10px" }}
-                        onInput={(e) => {
-                          e.target.value = e.target.value
-                            .replace(/[^0-9.]/g, "")
-                            .replace(/(\..*)\./g, "$1");
-                        }}
-                        onClick={() => {
-                          setParkingPossibility(true);
-                        }}
-                      />
-                    )}
-                    <p className="styled__Space-sc-1nti3md-3 ipuDqc">만원</p>
                   </div>
                 </td>
                 <th>반려동물</th>
                 <td>
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="animal" defaultChecked />
+                      <input
+                        type="radio"
+                        name="animal"
+                        defaultChecked
+                        onClick={() => {
+                          setHasPet(false);
+                        }}
+                      />
                       <p>불가능</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="animal" />
+                      <input
+                        type="radio"
+                        name="animal"
+                        onClick={() => {
+                          setHasPet(true);
+                        }}
+                      />
                       <p>가능</p>
                     </label>
                   </div>
@@ -135,11 +198,24 @@ const AdditionalInfo = () => {
                 <td>
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="elevator" defaultChecked />
+                      <input
+                        type="radio"
+                        name="elevator"
+                        defaultChecked
+                        onClick={() => {
+                          setHasElevator(false);
+                        }}
+                      />
                       <p>불가능</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="elevator" />
+                      <input
+                        type="radio"
+                        name="elevator"
+                        onClick={() => {
+                          setHasElevator(true);
+                        }}
+                      />
                       <p>가능</p>
                     </label>
                   </div>
@@ -148,11 +224,24 @@ const AdditionalInfo = () => {
                 <td>
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="balcony" defaultChecked />
+                      <input
+                        type="radio"
+                        name="balcony"
+                        defaultChecked
+                        onClick={() => {
+                          setHasBalcony(false);
+                        }}
+                      />
                       <p>불가능</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="balcony" />
+                      <input
+                        type="radio"
+                        name="balcony"
+                        onClick={() => {
+                          setHasBalcony(true);
+                        }}
+                      />
                       <p>가능</p>
                     </label>
                   </div>
@@ -185,11 +274,24 @@ const AdditionalInfo = () => {
                 <td colSpan="1">
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="builtIn" defaultChecked />
+                      <input
+                        type="radio"
+                        name="builtIn"
+                        defaultChecked
+                        onClick={() => {
+                          setHasBuiltIn(false);
+                        }}
+                      />
                       <p>없음</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="builtIn" />
+                      <input
+                        type="radio"
+                        name="builtIn"
+                        onClick={() => {
+                          setHasBuiltIn(true);
+                        }}
+                      />
                       <p>있음</p>
                     </label>
                   </div>
@@ -198,11 +300,24 @@ const AdditionalInfo = () => {
                 <td>
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="inner_type" defaultChecked />
+                      <input
+                        type="radio"
+                        name="inner_type"
+                        defaultChecked
+                        onClick={() => {
+                          setInnerType(false);
+                        }}
+                      />
                       <p>복층</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="inner_type" />
+                      <input
+                        type="radio"
+                        name="inner_type"
+                        onClick={() => {
+                          setInnerType(true);
+                        }}
+                      />
                       <p>1.5룸/주방분리형</p>
                     </label>
                   </div>
@@ -216,55 +331,133 @@ const AdditionalInfo = () => {
                     style={{ flexWrap: "wrap" }}
                   >
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasInduction(!hasInduction);
+                        }}
+                      />
                       <p>인덕션</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasMicrowave(!hasMicrowave);
+                        }}
+                      />
                       <p>전자레인지</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasAirConditioner(!hasAirConditioner);
+                        }}
+                      />
                       <p>에어컨</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasWasher(!hasWasher);
+                        }}
+                      />
                       <p>세탁기</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasTv(!hasTv);
+                        }}
+                      />
                       <p>TV</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasCloset(!hasCloset);
+                        }}
+                      />
                       <p>옷장</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasBed(!hasBed);
+                        }}
+                      />
                       <p>침대</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasDesk(!hasDesk);
+                        }}
+                      />
                       <p>책상</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasShoeCloset(!hasShoeCloset);
+                        }}
+                      />
                       <p>신발장</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasBidet(!hasBidet);
+                        }}
+                      />
                       <p>비데</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasGasRange(!hasGasRange);
+                        }}
+                      />
                       <p>가스레인지</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasRefrigerator(!hasRefrigerator);
+                        }}
+                      />
                       <p>냉장고</p>
                     </label>
                     <label className="styled__OptionCheckbox-sc-1nti3md-7 eXAGyI">
-                      <input type="checkbox" name="room_options" />
+                      <input
+                        type="checkbox"
+                        name="room_options"
+                        onClick={() => {
+                          sethasDoorLock(!hasDoorLock);
+                        }}
+                      />
                       <p>전자도어락</p>
                     </label>
                   </div>
@@ -275,11 +468,24 @@ const AdditionalInfo = () => {
                 <td colSpan="3">
                   <div className="styled__Wrap-sc-1nti3md-0 bTJwPT">
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="loan" defaultChecked />
+                      <input
+                        type="radio"
+                        name="loan"
+                        defaultChecked
+                        onClick={() => {
+                          setLoanPossibility(false);
+                        }}
+                      />
                       <p>불가능</p>
                     </label>
                     <label className="styled__OptionRadio-sc-1nti3md-9 iCkZFs">
-                      <input type="radio" name="loan" />
+                      <input
+                        type="radio"
+                        name="loan"
+                        onClick={() => {
+                          setLoanPossibility(true);
+                        }}
+                      />
                       <p>가능</p>
                     </label>
                   </div>

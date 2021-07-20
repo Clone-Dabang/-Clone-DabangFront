@@ -2,13 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Grid, Text } from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./AddressInfo.css";
+import { createAddressInfo } from "../redux/modules/room";
 
 const { kakao, daum } = window;
 var execDaumPostcode;
 
 const AddressInfo = () => {
+  const dispatch = useDispatch();
   const [jibun_address, setJibun] = useState("");
   const [road_address, setRoad] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+
+  useEffect(() => {
+    dispatch(
+      createAddressInfo({
+        road: road_address,
+        original: jibun_address,
+        latitude: latitude,
+        longitude: longitude,
+      })
+    );
+  }, [jibun_address, road_address]);
 
   useEffect(() => {
     var mapContainer = document.getElementById("staticMap"), // 지도를 표시할 div
@@ -33,6 +48,9 @@ const AddressInfo = () => {
           var addr = data.address; // 최종 주소 변수
           setJibun(data.jibunAddress);
           setRoad(data.roadAddress);
+          var center = map.getCenter();
+          setLatitude(center.getLat());
+          setLongitude(center.getLng());
 
           // 주소 정보를 해당 필드에 넣는다.
           document.getElementById("daumAddressInput").value = addr;
