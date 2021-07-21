@@ -31,13 +31,13 @@ const AdditionalInfo = () => {
   useEffect(() => {
     dispatch(
       createAdditionalInfo({
-        management_fee: managementFee,
+        management_fee: parseInt(managementFee),
         is_parking_space: isParkingSpace,
         has_pet: hasPet,
         has_elevator: hasElevator,
         has_balcony: hasBalcony,
         has_built_in: hasBuiltIn,
-        inner_type: innerType ? "1.5룸/주방분리형" : "복층",
+        inner_type: innerType ? "주방분리형" : "복층",
         loan_possibility: loanPossibility,
       })
     );

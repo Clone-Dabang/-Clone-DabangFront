@@ -118,16 +118,15 @@ const getOnePostServer = (id = null) => {
 };
 const createPostServer = () => {
   return function (dispatch, getState, { history }) {
-    console.log(getState());
-    // axios
-    //   .post(`http://localhost:4000/register`)
-    //   .then(function (response) {
-    //     console.log(response, "getOnePostServer");
-    //     dispatch(setPost(response.data));
-    //   })
-    //   .catch(function (err) {
-    //     console.log("post error", err);
-    //   });
+    axios
+      .post(`http://3.34.140.51:8088/api/roomposts`, getState().room.list[0])
+      .then(function (response) {
+        alert("등록이 완료됐습니다");
+        history.replace("/");
+      })
+      .catch(function (err) {
+        console.log("post error", err);
+      });
   };
 };
 

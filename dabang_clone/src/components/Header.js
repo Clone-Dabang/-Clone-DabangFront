@@ -13,7 +13,9 @@ const Header = (props) => {
       fontFamily="Spoqa Han Sans, -apple-system, sans-serif"
     >
       <Grid>
-        <img src={Logo} alt="다방" />
+        <a href="/">
+          <img src={Logo} alt="다방" />
+        </a>
       </Grid>
       <Grid justifyContent="space-between" width="auto" flex="0 0 auto;">
         <Text
