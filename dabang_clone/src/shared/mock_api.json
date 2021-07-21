@@ -2,63 +2,54 @@
     "posts": 
         [{
         "id": "0",
-        "sale_info": {"room_type": "원룸"},
-        "address_info": {
-            "road": "서울 강남구 강남대로 708",
-            "original": "서울 강남구 압구정동 386-1",
-            "latitude": 37.524592485999236,
-            "longitude": 127.0159646135124
+        "road": "서울 강남구 강남대로 708",
+        "original": "서울 강남구 압구정동 386-1",
+        "latitude": "37.524592485999236",
+        "longitude": "127.0159646135124",
+        "room_type": "원룸",
+        "monthly": {
+          "deposit": 10,
+          "pay": 30
         },
-        "trade_info": {
-            "monthly_deposit": "300",
-            "yearly_deposit": "9000",
-            "monthly_pay":"40",
-            "is_montly": true,
-            "is_yearly": true
+        "yearly": {
+          "deposit": 100
         },
-        "basic_info": {
-            "building_area": 13,
-            "floor": "13",
-            "moving_date": "2021-07-23"
-        }, 
-        "additional_info": {
-            "management_fee": "5",
-            "is_parking_space": true,
-            "has_pet": true,
-            "has_elevator": true,
-            "has_balcony": true,
-            "has_built_in": true,
-            "inner_type": "1.5룸/주방분리형",
-            "loan_possibility": true
-        },
-        "detail_info": {
-            "title": "제목",
-            "contents": "상세 설명"
-        
-        },
-        "appliance": {
-            "has_induction": false,
-            "has_microwave": true,
-            "has_air_conditioner": true,
-            "has_washer": true,
-            "has_tv": true,
-            "has_closet": false,
-            "has_bed": false,
-            "has_desk": false,
-            "has_shoe_closet": false,
-            "has_bidet": false,
-            "has_gas_range": false,
-            "has_refrigerator": false,
-            "has_door_lock": false
-        },
-        "image_upload": {
-            "url": [
-                "https://translate.google.co.kr/",
-                "https://translate.google.co.kr/",
-                "https://translate.google.co.kr/"
-            ]
-        },
-        "count": 10
+        "building_area": 13,
+        "floor": 13,
+        "moving_date": "yyyy-MM-dd",
+        "management_fee": 5,
+        "is_parking_space": true,
+        "has_pet": true,
+        "has_elevator": true,
+        "has_balcony": true,
+        "has_built_in": true,
+        "inner_type": "복층",
+        "loan_possibility": true,
+        "has_induction": false,
+        "has_microwave": true,
+        "has_air_conditioner": false,
+        "has_washer": true,
+        "has_tv": false,
+        "has_closet": false,
+        "has_bed": false,
+        "has_desk": false,
+        "has_shoe_closet": false,
+        "has_bidet": false,
+        "has_gas_range": false,
+        "has_refrigerator": false,
+        "has_door_lock": false,
+        "title": "제목",
+        "contents": "상세 설명",
+        "url": [
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2020/02/11/16/25/manarola-4840080__340.jpg",
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg"
+        ],
+        "parking_space": true
     }],
 
     "roomposts": {

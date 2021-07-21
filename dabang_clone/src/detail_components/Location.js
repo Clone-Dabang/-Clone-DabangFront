@@ -13,7 +13,7 @@ const Location = (props) => {
     useEffect(() => {
         const container = document.getElementById('detailMap');
 		const options = {
-			center: new kakao.maps.LatLng( latitude, longitude ),
+			center: new kakao.maps.LatLng( Number(latitude), Number(longitude) ),
 			level: 3
 		};
         const map = new kakao.maps.Map(container, options);
