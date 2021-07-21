@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {Grid, Text, Image, A, ToggleBtn} from "../components/Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getOnePostServer } from '../redux/modules/room';
@@ -14,15 +14,22 @@ import Table from '../detail_components/Table';
 
 const Detail = (props) => {
     const dispatch = useDispatch();
-    //임시 서버에서 id는 0
-    // const id = 0;
-    const id = props.match.params.id;
+
+    // async getPost() {
+    //     const _post = await dispatch(getOnePostServer(id));
+    //     console.log(_post);
+    // };
+
 
     // 상세페이지 게시글 가져오기
+    const id = Number(props.match.params.id);
+
     const post_list = useSelector((store) => store.room.list);
         console.log(post_list,"post_list");
-    const post_idx = post_list.findIndex((p) => p.id === id);
+
+    const post_idx = post_list.findIndex((p) => p.post_id === id);
         console.log(post_idx,"postindex");
+
     const post = post_list[post_idx];
     useEffect(() => {
         if (post) {
@@ -30,39 +37,42 @@ const Detail = (props) => {
         }
         dispatch(getOnePostServer(id));
     }, []);   
-        console.log(post,"post");
+
+    console.log(post,"post");
+
 
     //제곱미터, 평수 토글
     const [area,calcArea] = React.useState(false);
 
 
-    //하위 컴포넌트에 넘겨줄 데이터 정리
-    const trade_info = { monthly: post.monthly, yearly: post.yearly };
+    // 하위 컴포넌트에 넘겨줄 데이터 정리
+    const trade_info = { monthly: post?.monthly, yearly: post?.yearly };
     const additional_info = { 
-        management_fee: post.management_fee,
-        is_parking_space: post.is_parking_space,
+        management_fee: post?.management_fee,
+        is_parking_space: post?.is_parking_space,
      }
      const appliance = {
-        has_induction: post.has_induction,
-        has_microwave: post.has_microwave,
-        has_air_conditioner: post.has_air_conditioner,
-        has_washer: post.has_washer,
-        has_tv: post.has_tv,
-        has_closet: post.has_closet,
-        has_bed: post.has_bed,
-        has_desk: post.has_desk,
-        has_shoe_closet: post.has_shoe_closet,
-        has_bidet: post.has_bidet,
-        has_gas_range: post.has_gas_range,
-        has_refrigerator: post.has_refrigerator,
-        has_door_lock: post.has_door_lock
+        has_induction: post?.has_induction,
+        has_microwave: post?.has_microwave,
+        has_air_conditioner: post?.has_air_conditioner,
+        has_washer: post?.has_washer,
+        has_tv: post?.has_tv,
+        has_closet: post?.has_closet,
+        has_bed: post?.has_bed,
+        has_desk: post?.has_desk,
+        has_shoe_closet: post?.has_shoe_closet,
+        has_bidet: post?.has_bidet,
+        has_gas_range: post?.has_gas_range,
+        has_refrigerator: post?.has_refrigerator,
+        has_door_lock: post?.has_door_lock
          }
      const address_info = {
-        road: post.road,
-        original: post.original,
-        latitude: post.latitude,
-        longitude: post.longitude
+        road: post?.road,
+        original: post?.original,
+        latitude: post?.latitude,
+        longitude: post?.longitude
      };
+
  
     return (
         <Grid position="relative" flexDirection="column" justifyContent="center">
@@ -91,9 +101,8 @@ const Detail = (props) => {
                                  fontSize="30px" fontWeight="700"
                                  lineHeight="45px">
                                     월세&nbsp;
-                                    {post.monthly.deposit}/
                                     {post.monthly.pay}
-                                    
+                                     /{post.monthly.deposit}
                                 </Text>
                                 
                                 <Text
@@ -263,7 +272,9 @@ const Detail = (props) => {
         <Grid width="1180px" display="block"
               fontFamily={`NanumGothic, -apple-system, sans-serif`}>
             {/* 가격정보 */}
-            <Price trade_info={trade_info} additional_info={additional_info} />
+            <Price
+             trade_info={trade_info} 
+            additional_info={additional_info} />
             
             {/* 옵션 */}
             <Option appliance={appliance}/>
@@ -271,6 +282,7 @@ const Detail = (props) => {
             {/* 위치 */}
             <Location address_info={address_info} />
         </Grid>
+        
         </>    
         )}
     </Grid>

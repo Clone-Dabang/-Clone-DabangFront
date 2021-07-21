@@ -106,7 +106,7 @@ const createImageUpload = createAction(CREATE_IMAGE_UPLOAD, (image_upload) => ({
 const getOnePostServer = (id = null) => {
   return function (dispatch, getState, { history }) {
     axios
-      .get(`http://localhost:4000/posts/${id}`)
+      .get(`http://3.34.140.51:8088/api/posts/${id}`)
       .then(function (response) {
         console.log(response, "getOnePostServer");
         dispatch(setPost(response.data));
