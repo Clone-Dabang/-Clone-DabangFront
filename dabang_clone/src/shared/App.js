@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Detail from "../pages/Detail";
 import Register from "../pages/Register";
 import Header from "../components/Header";
+import Main from "../pages/Main";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <React.Fragment>
       <Header></Header>
       <ConnectedRouter history={history}>
+        <Route path="/" exact component={Main} />
         <Route path="/posts/:id" exact component={Detail} />
         <Route path="/register" exact component={Register} />
       </ConnectedRouter>
