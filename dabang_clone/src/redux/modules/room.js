@@ -59,6 +59,7 @@ const initialState = {
       },
     },
   ],
+  main_list: [],
 };
 
 // actions
@@ -71,6 +72,7 @@ const CREATE_ADDITIONAL_INFO = "room/CREATE_ADDITIONAL_INFO";
 const CREATE_APPLIANCE = "room/CREATE_APPLIANCE";
 const CREATE_DETAIL_INFO = "room/CREATE_DETAIL_INFO";
 const CREATE_IMAGE_UPLOAD = "room/CREATE_IMAGE_UPLOAD";
+const GET_MAIN_POSTS = "room/GET_MAIN_POSTS";
 
 // action creators
 const setPost = createAction(SET_POST, (post) => ({ post }));
@@ -101,6 +103,9 @@ const createDetailInfo = createAction(CREATE_DETAIL_INFO, (detail_info) => ({
 const createImageUpload = createAction(CREATE_IMAGE_UPLOAD, (image_upload) => ({
   image_upload,
 }));
+const getMainPosts = createAction(GET_MAIN_POSTS, (posts) => ({
+  posts,
+}));
 
 // middleware actions
 const getOnePostServer = (id = null) => {
@@ -126,6 +131,19 @@ const createPostServer = () => {
       })
       .catch(function (err) {
         console.log("post error", err);
+      });
+  };
+};
+const getPostsServer = () => {
+  return function (dispatch, getState, { history }) {
+    axios
+      .get(`http://3.34.140.51:8088/api/posts`)
+      .then(function (response) {
+        console.log(response);
+        dispatch(getMainPosts(response.data.shortInfo));
+      })
+      .catch(function (err) {
+        console.log(err, "getPostsError");
       });
   };
 };
@@ -169,6 +187,10 @@ export default handleActions(
       produce(state, (draft) => {
         draft.list[0].image_upload.url.push(action.payload.image_upload);
       }),
+    [GET_MAIN_POSTS]: (state, action) =>
+      produce(state, (draft) => {
+        draft.main_list = action.payload.posts;
+      }),
   },
   initialState
 );
@@ -184,4 +206,5 @@ export {
   createAppliance,
   createDetailInfo,
   createImageUpload,
+  getPostsServer,
 };
