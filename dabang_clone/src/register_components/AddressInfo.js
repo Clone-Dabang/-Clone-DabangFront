@@ -19,8 +19,8 @@ const AddressInfo = () => {
       createAddressInfo({
         road: road_address,
         original: jibun_address,
-        latitude: latitude,
-        longitude: longitude,
+        latitude: latitude.toString(),
+        longitude: longitude.toString(),
       })
     );
   }, [jibun_address, road_address, latitude, longitude]);

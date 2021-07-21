@@ -17,9 +17,9 @@ const TradeInfo = () => {
       createTradeInfo({
         is_monthly: isMonthly,
         is_yearly: isYearly,
-        monthly_deposit: monthlyDeposit,
-        monthly_pay: monthlyPay,
-        yearly_deposit: yearlyDeposit,
+        monthly_deposit: parseInt(monthlyDeposit),
+        monthly_pay: parseInt(monthlyPay),
+        yearly_deposit: parseInt(yearlyDeposit),
       })
     );
   }, [isMonthly, isYearly, monthlyDeposit, monthlyPay, yearlyDeposit]);

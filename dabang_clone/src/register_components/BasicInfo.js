@@ -30,7 +30,7 @@ const BasicInfo = () => {
     dispatch(
       createBasicInfo({
         building_area: m_square,
-        floor: floor,
+        floor: parseInt(floor),
         moving_date: format(date, "yyyy-MM-dd", { locale: enGB }),
       })
     );
