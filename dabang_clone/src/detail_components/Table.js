@@ -5,7 +5,7 @@ const Table = (props) => {
     const { post } = props;
     
     //방 수 계산
-    const {room_type} =  post.sale_info;
+    const {room_type} =  post;
     let roomCnt = 0;
     if ((room_type[0]==="원") || (room_type[0]==="오")) {
         roomCnt = 1;
@@ -19,7 +19,7 @@ const Table = (props) => {
     const [area,calcArea] = React.useState(false);
 
     //제곱미터 면적
-    const squareMeter = post.basic_info.building_area;
+    const squareMeter = post.building_area;
     //평수로 계산한 면적
     const calcSquare = (squareMeter*0.3025).toFixed(1);
 
@@ -36,7 +36,7 @@ const Table = (props) => {
                 color="rgb(134, 134, 134)">
                    층 수
                </Text>
-               <Text>{post.basic_info.floor}</Text>
+               <Text>{post.floor}</Text>
            </DetailList>
            <DetailList>
                <Text flex="0 0 95px"
@@ -86,7 +86,7 @@ const Table = (props) => {
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     빌트인</Text>
-               <Text>{post.additional_info.has_built_in?
+               <Text>{post.has_built_in?
                         "있음": "없음"
                 }</Text>
            </DetailList>
@@ -94,7 +94,7 @@ const Table = (props) => {
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     주차</Text>
-               <Text>{post.additional_info.is_parking_space?
+               <Text>{post.is_parking_space?
                         "가능": "불가능"
                 }</Text>
            </DetailList>
@@ -108,7 +108,7 @@ const Table = (props) => {
                <Text flex="0 0 95px"
                color="rgb(134, 134, 134)">
                     엘리베이터</Text>
-               <Text>{post.additional_info.has_elevator?
+               <Text>{post.has_elevator?
                         "있음": "없음"
                 }</Text>
            </DetailList>
@@ -116,28 +116,28 @@ const Table = (props) => {
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     반려동물</Text>
-               <Text>{post.additional_info.has_pet?
+               <Text>{post.has_pet?
                         "가능":"불가능"}</Text>
            </DetailList>
            <DetailList>
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     베란다/발코니</Text>
-               <Text>{post.additional_info.has_balcony?
+               <Text>{post.has_balcony?
                         "있음":"없음"}</Text>
            </DetailList>
            <DetailList>
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     전세자금대출</Text>
-               <Text>{post.additional_info.loan_possibility?
+               <Text>{post.loan_possibility?
                         "가능":"불가능"}</Text>
            </DetailList>
            <DetailList>
                <Text flex="0 0 95px"
                 color="rgb(134, 134, 134)">
                     입주가능일</Text>
-               <Text>{post.basic_info.moving_date}</Text>
+               <Text>{post.moving_date}</Text>
            </DetailList>
            {/* <DetailList>
                <Text flex="0 0 95px"
