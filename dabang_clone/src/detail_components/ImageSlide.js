@@ -6,19 +6,11 @@ import nxt from "../images/next_icon.png";
 
 
 
-const ImageSlide = () => {
+const ImageSlide = (props) => {
     const [slide, setSlide] = React.useState(false);
     const [image, changeImage] = React.useState(0);
     const imgWidth = 868;
-    const images =  [
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2020/02/11/16/25/manarola-4840080__340.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2021/07/09/02/29/family-6398107_960_720.jpg",
-];
+    const {images} = props;
     const imgCnt = images.length; //이미지 개수
 
     //이전 사진 보여주기

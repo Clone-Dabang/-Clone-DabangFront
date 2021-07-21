@@ -144,6 +144,7 @@ const P = styled.p`
 
   font-family: ${(props) => props.fontFamily || ""};
   display: ${(props) => props.display || ""};
+  align-items: ${(props) => props.alignItems || ""};;
   word-break: ${(props)=> props.wordBreak || ""};
   white-space: ${(props)=> props.whiteSpace || ""};
   
@@ -284,8 +285,10 @@ const ToggleBtn = styled.button`
     padding: 0px 8px;
     height: 24px;
     font-size: 11px;
+    white-space: nowrap;
     cursor: pointer;
 `
+
 
 // input 스타일!
 // const InputC = styled.input`

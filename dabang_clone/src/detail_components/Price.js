@@ -2,7 +2,10 @@ import React from 'react';
 import { Grid, Text, Image, Table, Tbody, Tr, Td_lineOne, Td_lineTwo } from '../components/Styles';
 import ErrorOutlineSharpIcon from '@material-ui/icons/ErrorOutlineSharp';
 
-const Price = () => {
+const Price = (props) => {
+    const {monthly,yearly} = props.trade_info;
+    const {management_fee, is_parking_space} = props.additional_info;
+    
     return (
         <React.Fragment>
             <Grid id="price"
@@ -25,17 +28,35 @@ const Price = () => {
                     </colgroup>
                     <Tbody>
                         <Tr height="50px">
-                            <Td_lineOne>월세</Td_lineOne>
+                            <Td_lineOne>
+                            {(monthly.pay!==0)? 
+                                "월세": "전세"    
+                            }
+                            </Td_lineOne>
                             <Td_lineOne borderLeft>관리비</Td_lineOne>
                             <Td_lineOne borderLeft>주차</Td_lineOne>
                             <Td_lineOne borderLeft>단기임대</Td_lineOne>
                         </Tr>
                         <Tr>
-                            <Td_lineTwo>ㅇ/</Td_lineTwo>
+                            {/* 월세, 전세 구분 */}
+                            <Td_lineTwo>
+                            {(monthly.pay!==0)? 
+                                `${monthly.pay}
+                                /
+                                ${monthly.deposit}`
+                            : yearly.deposit   
+                            }    
+                            </Td_lineTwo>
+
                             <Td_lineTwo borderLeft>
                                 <Grid display="block" padding="20px 28px 27px">
+                                    {management_fee?
+                                    (<>
                                     <Text
-                                     padding="0 0 24px 0">매월 만 원<br />
+                                    padding="0 0 24px 0">
+                                    매월&nbsp;
+                                    {management_fee}
+                                    만 원<br />
                                         <Text display="inline"
                                         color="rgb(134, 134, 134)"
                                         fontSize="13px"
@@ -45,14 +66,22 @@ const Price = () => {
                                         </Text>
                                     </Text>
                                     <Text
-                                     padding="24px 0 0 0"
-                                     borderTop="1px dashed rgb(201, 201, 201)"
-                                     >별도 금액으로 부과
+                                    padding="24px 0 0 0"
+                                    borderTop="1px dashed rgb(201, 201, 201)"
+                                    >별도 금액으로 부과
                                         <br /> -
                                     </Text>
+                                    </>)
+                                    :
+                                    `없음`    
+                                    }
+                                    
                                 </Grid>
                             </Td_lineTwo>
-                            <Td_lineTwo borderLeft>ㅇ</Td_lineTwo>
+                            <Td_lineTwo borderLeft>
+                            {is_parking_space?
+                            "가능": "불가능"
+                            }</Td_lineTwo>
                             <Td_lineTwo borderLeft>불가능</Td_lineTwo>
                         </Tr>
                     </Tbody>
@@ -78,7 +107,11 @@ const Price = () => {
                                 fontSize="30px"
                                 color="rgb(20, 118, 252)"
                                 fontWeight="500">
-                                만 원
+                                {(monthly.pay!==0)?
+                                `${monthly.pay + management_fee}
+                                만 원`
+                                : `없음`}
+                                
                                 <Text display="inline"
                                     margin="0 0 0 5px"
                                     color="rgb(76, 76, 76)"
