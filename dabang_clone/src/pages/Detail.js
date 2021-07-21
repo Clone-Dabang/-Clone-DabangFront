@@ -22,12 +22,14 @@ const Detail = (props) => {
 
 
     // 상세페이지 게시글 가져오기
-    const id = Number(props.match.params.id);
+    const id = Number(props.match.params.id); //백엔드 서버에서
+    // const id = props.match.params.id; //임시 서버에서
+
 
     const post_list = useSelector((store) => store.room.list);
         console.log(post_list,"post_list");
 
-    const post_idx = post_list.findIndex((p) => p.post_id === id);
+    const post_idx = post_list.findIndex((p) => p.post_id === id); //백엔드 서버는 post_id로!
         console.log(post_idx,"postindex");
 
     const post = post_list[post_idx];
@@ -94,6 +96,8 @@ const Detail = (props) => {
                             margin="0 0 5px">
                                 {post.room_type}({post.inner_type})
                             </Text>
+
+                            
                         {(post.monthly.pay!==0)?
                             <Grid display="block" whiteSpace="nowrap">
                                 <Text

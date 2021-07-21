@@ -235,6 +235,7 @@ const Image = styled.div`
 
 const A = styled.a`
   text-decoration: none;
+  color: black;
 `
 
 const Table = styled.table`
