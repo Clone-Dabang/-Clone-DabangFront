@@ -129,7 +129,7 @@ const Price = (props) => {
                                 </>
                                 )
                                 : `없음`}
-                                
+                                 
 
                             </Grid>
                             <Grid fontSize="13px"
