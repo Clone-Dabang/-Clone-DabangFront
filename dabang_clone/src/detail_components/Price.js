@@ -107,30 +107,18 @@ const Price = (props) => {
                                 fontSize="30px"
                                 color="rgb(20, 118, 252)"
                                 fontWeight="500">
-                                {((monthly.pay + management_fee)!==0)?
-                                (
-                                <>
-                                {monthly.pay + management_fee}
-                                만 원
+                                {(monthly.pay!==0)?
+                                `${monthly.pay + management_fee}
+                                만 원`
+                                : `없음`}
+                                
                                 <Text display="inline"
                                     margin="0 0 0 5px"
                                     color="rgb(76, 76, 76)"
                                     fontSize="15px"
                                     fontWeight="400">
-                                    {((monthly.pay)===0)?
-                                    "(관리비)"
-                                    :
-                                        ((management_fee)===0)?
-                                        "(월세)"
-                                        :
-                                        "(월세 + 관리비)"
-                                    }
+                                    (월세 + 관리비)
                                 </Text>
-                                </>
-                                )
-                                : `없음`}
-                                
-
                             </Grid>
                             <Grid fontSize="13px"
                                   color="rgb(134, 134, 134)"

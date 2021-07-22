@@ -286,6 +286,7 @@ const Detail = (props) => {
             {/* 위치 */}
             <Location address_info={address_info} />
         </Grid>
+        
         </>    
         )}
     </Grid>
