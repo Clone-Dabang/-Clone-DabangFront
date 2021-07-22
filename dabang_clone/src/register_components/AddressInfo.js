@@ -15,17 +15,6 @@ const AddressInfo = () => {
   const [longitude, setLongitude] = useState("");
 
   useEffect(() => {
-    dispatch(
-      createAddressInfo({
-        road: road_address,
-        original: jibun_address,
-        latitude: latitude.toString(),
-        longitude: longitude.toString(),
-      })
-    );
-  }, [jibun_address, road_address, latitude, longitude]);
-
-  useEffect(() => {
     var mapContainer = document.getElementById("staticMap"), // 지도를 표시할 div
       mapOption = {
         center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -48,11 +37,6 @@ const AddressInfo = () => {
           var addr = data.address; // 최종 주소 변수
           setJibun(data.jibunAddress);
           setRoad(data.roadAddress);
-          var center = map.getCenter();
-          const Lat = center.getLat();
-          const Lng = center.getLng();
-          setLatitude(Lat);
-          setLongitude(Lng);
 
           // 주소 정보를 해당 필드에 넣는다.
           document.getElementById("daumAddressInput").value = addr;
@@ -71,12 +55,29 @@ const AddressInfo = () => {
               map.setCenter(coords);
               // 마커를 결과값으로 받은 위치로 옮긴다.
               marker.setPosition(coords);
+
+              var center = map.getCenter();
+              const Lat = center.getLat();
+              const Lng = center.getLng();
+              setLatitude(Lat);
+              setLongitude(Lng);
             }
           });
         },
       }).open();
     };
   }, []);
+
+  useEffect(() => {
+    dispatch(
+      createAddressInfo({
+        road: road_address,
+        original: jibun_address,
+        latitude: latitude.toString(),
+        longitude: longitude.toString(),
+      })
+    );
+  }, [jibun_address, road_address, latitude, longitude]);
 
   return (
     <React.Fragment>
