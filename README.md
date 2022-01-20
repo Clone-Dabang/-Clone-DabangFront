@@ -41,7 +41,7 @@
 * **react-nice-dates**
   - 달력 라이브러리 
 
-[배포 사이트](http://dabangclone.s3-website.ap-northeast-2.amazonaws.com/) (과금 문제로 현재 서비스가 중단되었습니다. 대신 아래 영상을 참고해 주세요.)
+[배포 사이트](http://dabangclone.s3-website.ap-northeast-2.amazonaws.com/) (과금 문제로 사이트 확인이 부분적으로만 가능합니다. 대신 아래 영상을 참고해 주세요.)
 
 <img src="https://images.velog.io/images/uvula6921/post/44c62413-9689-4568-bb41-0f8f2dacd74d/%EB%B0%A9%EC%98%AC%EB%A6%AC%EA%B8%B0GIF.gif">
 <img src="https://images.velog.io/images/uvula6921/post/a97ebc6d-366a-4042-b1ee-f3b706cb5e59/%EC%98%AC%EB%A6%B0%20%EB%B0%A9%20GIF.gif">
